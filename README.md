@@ -59,8 +59,6 @@ An Example Memory with embedded User (Author):
 
 ## Wireframes
 
-(___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
-
 /news - page for viewing news from the organization
 
 ![news](documentation/news.png)
@@ -87,7 +85,7 @@ An Example Memory with embedded User (Author):
 
 ## Site map
 
-![site-map](documentation/site-map.pdf)
+![site-map](documentation/site-map.png)
 
 ## User Stories or Use Cases
 
