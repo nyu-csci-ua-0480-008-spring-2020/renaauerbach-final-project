@@ -1,26 +1,19 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-(___TODO__: your project name_)
-
-# Shoppy Shoperson 
+# Team Caleb
 
 ## Overview
 
-(___TODO__: a brief one or two paragraph, high-level description of your project_)
+Team Caleb is a non-profit organization in memory of Caleb Penn Maeir. This organization was designed to provide sports programs in underprivileged communities with the necessary funds and equipment to play the sports every child loves.
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
-
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
-
+This web application is designed for users to register for upcoming TC events and post memories they have of Caleb. 
 
 ## Data Model
 
-(___TODO__: a description of your application's data and their relationships to each other_) 
+The application will store Users, Events, and Memories
 
-The application will store Users, Lists and Items
-
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+* Users can register for multiple Events (via references)
+* Users can author multiple Memories (via references)
+* Events can have multiple registered Users (via reference)
+* Memories can be created by one User
 
 (___TODO__: sample documents_)
 
@@ -28,46 +21,71 @@ An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "renaauerbach",
   hash: // a password hash,
-  lists: // an array of references to List documents
+  email: "rma453@nyu.edu",
+  firstName: "Rena",
+  lastName: "Auerbach",
+  location: "Chicago, IL",
+  events: [] // an array of references to Event documents
+  memories: [] // an array of references to Memory documents
 }
 ```
 
-An Example List with Embedded Items:
+An Example Event with registered Users:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
+  title: "Jerusalem Marathon",
+  date: "2020-03-20T10:30:00.000Z",
+  location: "Jerusalem, Israel",
+  users: [] //an array of references to Users 
+  image: // an optional event image
   createdAt: // timestamp
 }
 ```
 
+An Example Memory with referenced User:
+
+```javascript
+{
+  title: "First grade class",
+  author: // reference to authored user
+  text: "I loved being in the same class as Caleb in first grade!"
+  image: // an optional image
+  createdAt: // timestamp  
+}
+```
 
 ## [Link to Commented First Draft Schema](db.js) 
-
-(___TODO__: create a first draft of your Schemas in db.js and link to it_)
 
 ## Wireframes
 
 (___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
 
-/list/create - page for creating a new shopping list
+/news - page for viewing news from the organization
 
-![list create](documentation/list-create.png)
+![news](documentation/news.png)
 
-/list - page for showing all shopping lists
+/events - page for viewing events
 
-![list](documentation/list.png)
+![events](documentation/events.png)
 
-/list/slug - page for showing specific shopping list
+/events/register - page for registering for an event
 
-![list](documentation/list-slug.png)
+![events register](documentation/events-register.png)
+
+/memories - page for viewing memories about Caleb
+
+![memories](documentation/memories.png)
+
+/memories/share - page for sharing a new memory 
+
+![memories share](documentation/memories-share.png)
+
+/contact - page for contacting the organization
+
+![contact](documentation/contact.png)
 
 ## Site map
 

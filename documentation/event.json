@@ -1,0 +1,8 @@
+{
+    "title": "Jerusalem Marathon",
+    "date": "2020-03-20T10:30:00.000Z",
+    "location": "Jerusalem, Israel",
+    "users": [], //an array of references to Users
+    "image": {}, // an optional event image
+    "createdAt": "" // timestamp
+}

@@ -1,0 +1,7 @@
+{
+    "title": "First grade class",
+    "author": {}, // reference to authored user
+    "text": "I loved being in the same class as Caleb in first grade!",
+    "image": "", // an optional image
+    "createdAt": "" // timestamp
+}
