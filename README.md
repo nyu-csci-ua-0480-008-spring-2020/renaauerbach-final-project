@@ -106,24 +106,18 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 ## Research Topics
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
-
-10 points total out of 8 required points 
+* (3 points) Grunt build tool
+    * I'm going to be using Grunt for task automation in conjunction with the following:
+	* (2 points) ESLint
+	    * I will have a configuration file in my repository
+	    * It will automatically run on entire codebase outside of node_modules on file change
+	    * I will link it to relevant lines in build configuration and lint configuration
+	    * I will show screen capture / animated gif of running on save
+* (5 points) ReactJS
+    * I'm going to use ReactJS as the frontend framework
 
 ## [Link to Initial Main Project File](app.js) 
 
 ## Annotations / References Used
 
-(___TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
-
+1. [React tutorial](https://reactjs.org/tutorial/tutorial.html)
