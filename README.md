@@ -13,11 +13,9 @@ The application will store Users, Events, and Memories
 * Users can register for multiple Events (via references)
 * Users can author multiple Memories (via references)
 * Events can have multiple registered Users (via reference)
-* Memories can be created by one User
+* A Memory can be created by one User (embedded)
 
-(___TODO__: sample documents_)
-
-An Example User:
+An Example User with referenced Events and Memories:
 
 ```javascript
 {
@@ -32,7 +30,7 @@ An Example User:
 }
 ```
 
-An Example Event with registered Users:
+An Example Event with referenced Users:
 
 ```javascript
 {
@@ -45,12 +43,12 @@ An Example Event with registered Users:
 }
 ```
 
-An Example Memory with referenced User:
+An Example Memory with embedded User (Author):
 
 ```javascript
 {
   title: "First grade class",
-  author: // reference to authored user
+  author: {firstName: "Rena", lastName: "Auerbach"},
   text: "I loved being in the same class as Caleb in first grade!"
   image: // an optional image
   createdAt: // timestamp  
@@ -75,13 +73,13 @@ An Example Memory with referenced User:
 
 ![events register](documentation/events-register.png)
 
-/memories - page for viewing memories about Caleb
+/memories - page for viewing the memory book
 
 ![memories](documentation/memories.png)
 
-/memories/share - page for sharing a new memory 
+/memories/new - page for sharing a new memory 
 
-![memories share](documentation/memories-share.png)
+![memories new](documentation/memories-new.png)
 
 /contact - page for contacting the organization
 
@@ -95,14 +93,16 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 ## User Stories or Use Cases
 
-(___TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
-
-1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+1. As a non-registered user, I can register a new account with the site
+2. As a non-registered user, I can view the news page
+3. As a non-registered user, I can view the events page
+4. As a non-registered user, I can view the memory book page
+5. As a non-registered user, I can contact the organization via the contact page
+6. As a user, I can log in to the site
+7. As a user, I can register for an event
+8. As a user, I can view all the events I am registered for
+9. As a user, I can author a new memory
+10. As a user, I can view all the memories I have authored
 
 ## Research Topics
 
@@ -119,8 +119,7 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 * (5 points) vue.js
     * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
-
+10 points total out of 8 required points (___TODO__: additional points will __not__ count for extra credit_)
 
 ## [Link to Initial Main Project File](app.js) 
 
