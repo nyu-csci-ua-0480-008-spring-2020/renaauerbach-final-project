@@ -1,8 +1,8 @@
 @charset "UTF-8";
-@import url(font-awesome.min.css);
-@import url('https://fonts.googleapis.com/css?family=Cambay:400,700|Cantarell:400,700|Hind:300,400,500,600,700|Khula:300,400,600,700,800|Lato|Mallanna|Quattrocento+Sans:400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i');
+/* @import url(font-awesome.min.css); */
+/* @import url('https://fonts.googleapis.com/css?family=Cambay:400,700|Cantarell:400,700|Hind:300,400,500,600,700|Khula:300,400,600,700,800|Lato|Mallanna|Quattrocento+Sans:400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i'); */
 
-	.smaller {
+	/* .smaller {
 		font-size: 75%;
 	}
 	
@@ -33,7 +33,7 @@
 	p.push {
 		margin-left: 18em;
 	}
-	
+	 */
 	
 /* Reset */
 
@@ -1080,7 +1080,7 @@
 		}
 		
 		.wrapper .inner_a {
-			margin: 1.3em auto 8em; auto;
+			margin: 1.3em auto 8em auto;
 			width: 80em;
 			height: 100%;
 			position: relative;
@@ -3660,7 +3660,6 @@
 		#banner .button {
 			width: 100%;
 		}
-	}
 	#footer {
 		padding: 0.5em;
 	}
