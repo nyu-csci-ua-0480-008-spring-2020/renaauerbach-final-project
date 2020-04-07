@@ -117,3 +117,5 @@ An Example Memory with embedded User (Author):
 ## Annotations / References Used
 
 1. [React tutorial](https://reactjs.org/tutorial/tutorial.html)
+2. [Creating a MERN Stack Application](https://blog.cloudboost.io/creating-your-first-mern-stack-application-b6604d12e4d3)
+3. [Create React App](https://create-react-app.dev/)
