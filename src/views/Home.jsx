@@ -4,26 +4,27 @@ import Banner from '../components/Banner';
 import Wrapper from '../components/Wrapper';
 
 export default class Home extends Component {
-  render() {
-    return (
-      <div>
-        <Banner />
-        <Wrapper
-          wrap="style1"
-          img="../assets/img/mission.jpg"
-          alt="Runner in Team Caleb shirt"
-          title="Our Mission"
-          id="mission"
-          text="Our mission is to provide sports programs in underprivileged
+   render() {
+      return (
+         <React.Fragment>
+            <Banner />
+            <div className="main">
+               <Wrapper
+                  wrap="style1"
+                  img="../assets/img/mission.jpg"
+                  alt="Runner in Team Caleb shirt"
+                  title="Our Mission"
+                  id="mission"
+                  text="Our mission is to provide sports programs in underprivileged
                 communities with the necessary funds and equipment to play the
                 sports every child loves."
-        />
-        <Wrapper
-          wrap="style2"
-          img="../assets/img/caleb.jpg"
-          alt="Photo of Caleb Penn Maeir"
-          title="About Us"
-          text="Team Caleb began in 2015, when our close friend,
+               />
+               <Wrapper
+                  wrap="style2"
+                  img="../assets/img/caleb.jpg"
+                  alt="Photo of Caleb Penn Maeir"
+                  title="About Us"
+                  text="Team Caleb began in 2015, when our close friend,
           Caleb Maeir, was diagnosed with cancer. As a humble group of
           high-schoolers, we rallied together in support of Caleb and to
           remind him that he was never alone in his courageous, but
@@ -39,14 +40,14 @@ export default class Home extends Component {
           2017, we have made it our mission to keep Caleb’s legacy alive by
           raising funds and buying equipment for sports programs in
           underprivileged communities."
-        />
-        <Wrapper
-          wrap="style1"
-          header
-          title="Join the Team!"
-          text="Come join us at one of our upcoming events!"
-        />
-      </div>
-    );
-  }
+               />
+               <Wrapper
+                  wrap="style1"
+                  title="Join the Team!"
+                  text="Come join us at one of our upcoming events!"
+               />
+            </div>
+         </React.Fragment>
+      );
+   }
 }

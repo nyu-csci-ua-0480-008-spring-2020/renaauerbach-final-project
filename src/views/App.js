@@ -34,16 +34,12 @@ export default class App extends Component {
 						<p className="memorium">In Memory of Caleb Penn Maeir</p>
 					</div>
 					<a href="#menu"></a>
-				</header>
-				<Home />
-				<div className="wrapper">
 					<nav id="menu">
 						<Nav {...this.props} />
 					</nav>
-					<div id="main-panel" className="main-panel" ref="mainPanel">
-						<Footer />
-					</div>
-				</div>
+				</header>
+				<Home />
+				<Footer />
 				{/* <h1>Users</h1> */}
 				{/* {this.state.users.map(user => ( */}
 				{/* 	<div key={user.id}>{user.username}</div> */}

@@ -1044,6 +1044,7 @@
 /* Wrapper */
 
 	.wrapper {
+		padding: 1em 0;
 		position: relative;
 	}
 
