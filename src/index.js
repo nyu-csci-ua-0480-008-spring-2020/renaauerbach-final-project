@@ -14,7 +14,7 @@ ReactDOM.render(
                key={index}
                path={route.path}
                exact={route.exact}
-               render={props => <App view={route.view} />}
+               render={(props) => <App view={route.view} />}
             />
          ))}
          {/* <div id="account"> */}

@@ -8,8 +8,12 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const router = express.Router();
-require('./db.js');
+const PORT = process.env.PORT || 3000;
+
+const db = require('./db.js');
+const userRouter = require('./routes/user.routes.js');
+// const eventRouter = require('./routes/event.routes.js');
+const memoryRouter = require('./routes/memory.routes.js');
 
 const User = require('../models/User');
 const Event = require('../models/Event');
@@ -19,18 +23,20 @@ app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 app.use('../assets', express.static('assets'));
+app.use('/api', userRouter);
+// app.use('/api/events', eventRouter);
+app.use('/api/memories', memoryRouter);
 
-const PORT = process.env.PORT || 3000;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 router.use((req, res, next) => {
    next();
 });
 
 router.get('/', (req, res) => {
-   const appString = renderToString(<App />);
-
-   res.send();
+   res.render('App');
 });
 
 router.get('/news', (req, res) => {

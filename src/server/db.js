@@ -13,10 +13,14 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
    dbconf = conf.dbconf;
 } else {
    // If not in PRODUCTION mode
-   dbconf = 'mongodb://localhost/team_caleb';
+   dbconf = 'mongodb://127.0.0.1:27017/team_caleb';
 }
 
 mongoose
    .connect(dbconf, { useNewUrlParser: true, useUnifiedTopology: true })
    .then(() => console.log(`Database connected successfully`))
-   .catch(err => console.log(err));
+   .catch((err) => console.log('Connection error: ', err));
+
+const db = mongoose.connection;
+
+module.exports = db;

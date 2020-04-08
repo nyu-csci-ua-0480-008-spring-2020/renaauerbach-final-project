@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
@@ -15,12 +13,6 @@ export default class App extends Component {
 			idToUpdate: null,
 			objectToUpdate: null,
 		};
-	}
-
-	componentDidMount() {
-		fetch('/users')
-			.then((res) => res.json())
-			.then((users) => this.setState({ users: users, ...this.state }));
 	}
 
 	render() {

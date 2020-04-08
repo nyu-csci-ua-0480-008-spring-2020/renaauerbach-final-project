@@ -182,7 +182,6 @@
 
 	.align-center {
 		text-align: center;
-		margin-bottom: 1em;
 	}
 
 	.align-right {
@@ -388,7 +387,7 @@
 		margin: 0 auto;
 		vertical-align: middle;
 	}
-	
+
 	form > input.names {
 		display: inline-block;
 		margin-bottom: 10px;
@@ -396,12 +395,12 @@
 
 	/* First Name Input */
 	form > input.names.info1 {				
-		width: 20% !important;
+		width: 20%;
 	}
 	
 	/* Last Name Input */
 	form > input.names.info2 { 				
-		margin-left: 3px;
+		margin-left: 5px;
 		width: 29.5%;
 	}
 
@@ -409,7 +408,7 @@
 		display: block;
 		font-size: 0.9em;
 		font-weight: 700;
-		margin: 0 0 1em 0;
+		margin: 0;
 	}
 
 	input[type="text"],
@@ -1057,7 +1056,7 @@
 		}
 		
 		.wrapper .inner_a {
-			margin: 1.3em auto 8em auto;
+			margin: 1.3em auto 2em auto;
 			width: 80em;
 			height: 100%;
 			position: relative;
@@ -1870,7 +1869,7 @@
 		padding: 5px;
 		background: #D7FC51;
 		width: 100%;
-		position: fixed;
+		position: relative;
 		bottom: 0;
 	}
 

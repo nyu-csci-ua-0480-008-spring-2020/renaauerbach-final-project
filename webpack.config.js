@@ -1,26 +1,28 @@
-'use strict';
+// const ExtractPlugin = require('extract-text-webpack-plugin');
+// const HTMLPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
-const ExtractPlugin = require('extract-text-webpack-plugin');
-const HTMLPlugin = require('html-webpack-plugin');
 module.exports = {
-	devtool: 'eval',
-	entry: `${__dirname}/client/index.js`,
+	entry: path.join(__dirname, 'src/index.js'),
 	output: {
-		filename: 'bundle-[hash].js',
-		path: `${__dirname}/build`,
+		filename: 'bundle.js',
+		path: path.join(__dirname, 'src'),
 		publicPath: '/',
 	},
 	plugins: [new HTMLPlugin(), new ExtractPlugin('bundle-[hash].css')],
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /.js$/,
 				exclude: /node_module/,
 				loader: 'babel-loader',
+				query: { presets: ['es2015', 'react'] },
 			},
 			{
-				test: /\.scss$/,
-				loader: ExtractPlugin.extract(['css-loader', 'sass-loader']),
+				test: /\.css$/,
+				// loader: ExtractPlugin.extract(['css-loader', 'sass-loader']),
+				loader: 'style-loader!css-loader',
 			},
 		],
 	},

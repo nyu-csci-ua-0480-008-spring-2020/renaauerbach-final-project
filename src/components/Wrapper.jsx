@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { NavLink } from 'react-router-dom';
 import Form from './Form';
 
 export default class Wrapper extends Component {
@@ -17,6 +17,11 @@ export default class Wrapper extends Component {
                   <header className="align-center">
                      <h1>{this.props.title}</h1>
                      <p>{this.props.text}</p>
+                     {this.props.button ? (
+                        <NavLink to={this.props.button.link} className="button">
+                           {this.props.button.text}
+                        </NavLink>
+                     ) : null}
                   </header>
                   {this.props.form ? <Form {...this.props.form} /> : null}
                </div>

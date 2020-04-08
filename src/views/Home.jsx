@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Banner from '../components/Banner';
 import Wrapper from '../components/Wrapper';
 
+import image1 from '../assets/img/mission.jpg';
+import image2 from '../assets/img/caleb.jpg';
+
 export default class Home extends Component {
    render() {
       return (
@@ -11,7 +14,7 @@ export default class Home extends Component {
             <div className="main">
                <Wrapper
                   wrap="style1"
-                  img="../assets/img/mission.jpg"
+                  img={image1}
                   alt="Runner in Team Caleb shirt"
                   title="Our Mission"
                   id="mission"
@@ -21,7 +24,7 @@ export default class Home extends Component {
                />
                <Wrapper
                   wrap="style2"
-                  img="../assets/img/caleb.jpg"
+                  img={image2}
                   alt="Photo of Caleb Penn Maeir"
                   title="About Us"
                   text="Team Caleb began in 2015, when our close friend,
@@ -45,6 +48,7 @@ export default class Home extends Component {
                   wrap="style1"
                   title="Join the Team!"
                   text="Come join us at one of our upcoming events!"
+                  button={{ link: '/events', text: 'Upcoming Events' }}
                />
             </div>
          </React.Fragment>
