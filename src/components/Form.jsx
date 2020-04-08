@@ -25,7 +25,7 @@ export default class Form extends Component {
                      required={input.required ? true : false}
                   />
                ))}
-
+               <br />
                {this.props.textarea ? (
                   <textarea
                      name="msg"

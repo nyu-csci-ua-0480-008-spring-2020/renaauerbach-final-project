@@ -2,33 +2,6 @@ import React, { Component } from 'react';
 
 import Wrapper from '../components/Wrapper';
 
-// function createUser() {
-//    fetch('http://localhost:3001/api/person', {
-//       method: 'post',
-//       body: JSON.stringify([
-//          {
-//             email: this.state.email,
-//             firstName: this.state.firstName,
-//             lastName: this.state.lastName,
-//          },
-//       ]),
-//       headers: {
-//          'Content-Type': 'application/json',
-//          Origin: 'http://localhost:3001',
-//       },
-//    })
-//       .then((res) => res.json())
-//       .then((status) => {
-//          if (status.success === false) {
-//             console.log('MISSION FAILED');
-//             console.log(status.error);
-//          } else {
-//             console.log('MISSION SUCCESS');
-//             this.setState({ personID: status.id });
-//          }
-//       });
-// }
-
 export default class Contact extends Component {
    render() {
       const inputs = [
