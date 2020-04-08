@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Form from './Form';
+
 export default class Wrapper extends Component {
    constructor(props) {
       super(props);
@@ -10,11 +12,14 @@ export default class Wrapper extends Component {
       const style = 'wrapper ' + this.props.wrap;
       return (
          <section className={style}>
-            {this.props.img == undefined ? (
-               <header className="align-center">
-                  <h2>{this.props.title}</h2>
-                  <p>{this.props.text}</p>
-               </header>
+            {this.props.img === undefined ? (
+               <div className="inner_a">
+                  <header className="align-center">
+                     <h1>{this.props.title}</h1>
+                     <p>{this.props.text}</p>
+                  </header>
+                  {this.props.form ? <Form {...this.props.form} /> : null}
+               </div>
             ) : (
                <div className="inner">
                   <div className="flex flex-2">

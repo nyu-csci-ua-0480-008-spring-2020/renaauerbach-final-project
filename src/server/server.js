@@ -1,41 +1,128 @@
-const mongoose = require('mongoose');
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from '../App';
+import Signup from '../Signup';
+
 const express = require('express');
-const router = require('./routes/routes.js');
 const bodyParser = require('body-parser');
 const path = require('path');
+
 const app = express();
-require('dotenv').config();
+const router = express.Router();
+require('./db.js');
+
+const User = require('../models/User');
+const Event = require('../models/Event');
+const Memory = require('../models/Memory');
+
+app.set('views', path.join(__dirname, '../views'));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use('../assets', express.static('assets'));
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/hw06';
 
-app.set('views', path.join(__dirname, '../src/views'));
-app.use(express.static(path.join(__dirname, '../src')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-mongoose.Promise = global.Promise;
-mongoose
-	.connect(MONGODB_URI, { useNewUrlParser: true })
-	.then(() => console.log(`Database connected successfully`))
-	.catch(err => console.log(err));
-
-// app.use(app.router);
-// routes.initialize(app);
-
-app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header(
-		'Access-Control-Allow-Headers',
-		'Origin, X-Requested-With, Content-Type, Accept'
-	);
-	next();
+router.use((req, res, next) => {
+   next();
 });
 
-app.use((req, res, next) => {
-	res.send('Welcome to Express');
+router.get('/', (req, res) => {
+   const appString = renderToString(<App />);
+
+   res.send();
 });
 
-app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`);
+router.get('/news', (req, res) => {
+   res.render('News', {});
+});
+
+router.get('/events', (req, res) => {
+   Event.find({}, (events) => {
+      res.render('Events', {
+         events: events,
+      });
+   });
+});
+
+router.get('/events/register', (req, res) => {
+   res.render('Register', {});
+});
+
+//TODO: EVENT REGISTRATION PAGE
+
+router.get('/memories', (req, res) => {
+   Memory.find({}, (memories) => {
+      res.render('Memories', {
+         memories: memories,
+      });
+   });
+});
+
+router.get('/memories/new', (req, res) => {
+   res.render('newMemory', {});
+});
+
+router.post('/memories/new', (req, res) => {
+   const newMemory = new Memory({
+      title: req.body.title,
+      author: {
+         firstName: req.user.firstName,
+         lastName: req.user.lastName,
+      },
+      text: req.body.text,
+      image: req.body.image,
+      createdAt: new Date().now(),
+   });
+
+   newMemory.save((err, memory) => {
+      if (err) {
+         res.render('newMemory', {
+            error: 'There was an error with your submission. Please try again.',
+         });
+      } else {
+         res.redirect('/memories');
+      }
+   });
+});
+
+router.get('/contact', (req, res) => {
+   res.render('Contact', {});
+});
+
+router.get('/account', (req, res) => {
+   User.find({ session: res.locals.user }, (err, result) => {
+      res.render('Account', {});
+   });
+});
+
+router.get('/join', (req, res) => {
+   res.render('Signup');
+});
+
+router.post('/join', (req, res) => {
+   console.log(req.body);
+   const newUser = new User({
+      username: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      location: req.body.location,
+      events: [],
+      memories: [],
+   });
+
+   newUser.save((err, user) => {
+      if (err) {
+         res.render('Signup', {
+            error: 'There was an error with your account. Please try again.',
+         });
+      } else {
+         res.redirect('/account');
+      }
+   });
+});
+
+router.listen(PORT, () => {
+   console.log(`Server running on port ${PORT}`);
 });

@@ -1,51 +1,41 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import routes from '../server/routes/routes';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 
 export default class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+   constructor(props) {
+      super(props);
+      this.state = {};
+   }
 
-  render() {
-    return (
-      <Router>
-        <ul className="links">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/news">News</Link>
-          </li>
-          <li>
-            <Link to="/events">Events</Link>
-          </li>
-          <li>
-            <Link to="/memories">Memory Book</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
-          </li>
-          {/* <li> */}
-          {/*   <Link to="/account">My Account</Link> */}
-          {/* </li> */}
-          {/* <li> */}
-          {/*   <Link to="/signup">Sign Up</Link> */}
-          {/* </li> */}
-        </ul>
-
-        <Switch>
-          {routes.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              exact={route.exact}
-              component={route.component}
-            />
-          ))}
-        </Switch>
-      </Router>
-    );
-  }
+   render() {
+      return (
+         <nav id="menu">
+            <ul className="links">
+               <Router>
+                  <li>
+                     <NavLink to="/">Home</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/news">News</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/events">Events</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/memories">Memory Book</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/contact">Contact Us</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/account">My Account</NavLink>
+                  </li>
+                  <li>
+                     <NavLink to="/join">Sign Up</NavLink>
+                  </li>
+               </Router>
+            </ul>
+         </nav>
+      );
+   }
 }

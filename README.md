@@ -119,3 +119,4 @@ An Example Memory with embedded User (Author):
 1. [React tutorial](https://reactjs.org/tutorial/tutorial.html)
 2. [Creating a MERN Stack Application](https://blog.cloudboost.io/creating-your-first-mern-stack-application-b6604d12e4d3)
 3. [Create React App](https://create-react-app.dev/)
+4. [Server side rendering with React and Express](https://medium.com/front-end-weekly/server-side-rendering-with-react-and-express-382591bfc77c)

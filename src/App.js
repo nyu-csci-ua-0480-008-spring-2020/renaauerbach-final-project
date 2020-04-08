@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-import Home from './Home';
-
-import logo from '../assets/img/icon.png';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 export default class App extends Component {
 	constructor(props) {
@@ -21,30 +19,22 @@ export default class App extends Component {
 
 	componentDidMount() {
 		fetch('/users')
-			.then(res => res.json())
-			.then(users => this.setState({ users }));
+			.then((res) => res.json())
+			.then((users) => this.setState({ users: users, ...this.state }));
 	}
 
 	render() {
 		return (
-			<div>
-				<header id="header">
-					<div className="logo">
-						<img src={logo} alt="logo" />
-						<p className="memorium">In Memory of Caleb Penn Maeir</p>
-					</div>
-					<a href="#menu"></a>
-					<nav id="menu">
-						<Nav {...this.props} />
-					</nav>
-				</header>
-				<Home />
+			<React.Fragment>
+				<Header />
+				<Nav {...this.props} />
+				{this.props.view}
 				<Footer />
 				{/* <h1>Users</h1> */}
 				{/* {this.state.users.map(user => ( */}
 				{/* 	<div key={user.id}>{user.username}</div> */}
 				{/* ))} */}
-			</div>
+			</React.Fragment>
 		);
 	}
 }
