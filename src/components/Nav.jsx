@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-
-class Nav extends Component {
+export default class Nav extends Component {
    render() {
       const navClass = this.props.showNav ? 'visible' : 'close';
       return (
@@ -38,4 +37,3 @@ class Nav extends Component {
       );
    }
 }
-export default Nav;

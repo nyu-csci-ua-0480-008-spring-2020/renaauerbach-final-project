@@ -9,11 +9,16 @@ export default class Events extends Component {
    // }
 
    render() {
-      const text = 'Events';
+      const text = 'Join us at one of our upcoming events';
 
       return (
          <div className="main">
-            <Wrapper wrap="style1" title="Contact Us" id="email" text={text} />
+            <Wrapper
+               wrap="style1"
+               title="Upcoming Events"
+               id="email"
+               text={text}
+            />
          </div>
       );
    }

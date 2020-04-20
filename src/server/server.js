@@ -38,7 +38,7 @@ require('./config/passport')(passport);
 
 // Routes
 app.use('/api/users', userRouter);
-// app.use('/api/events', eventRouter);
+app.use('/api/events', eventRouter);
 app.use('/api/memories', memoryRouter);
 
 app.use((req, res, next) => {

@@ -13,20 +13,15 @@ export default class App extends Component {
 		super(props);
 		this.state = {
 			showNav: false,
-			// message: null,
-			// intervalIsSet: false,
-			// idToDelete: null,
-			// idToUpdate: null,
-			// objectToUpdate: null,
 		};
 		this.toggleNav = this.toggleNav.bind(this);
 	}
 
-	componentDidMount() {
-		if (this.props.auth.isAuthenticated) {
-			this.props.history.push('/home');
-		}
-	}
+	// componentDidMount() {
+	// 	if (this.props.auth.isAuthenticated) {
+	// 		this.props.history.push('/home');
+	// 	}
+	// }
 
 	toggleNav() {
 		this.setState({ showNav: !this.state.showNav });
