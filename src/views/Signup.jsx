@@ -3,6 +3,92 @@ import React, { Component } from 'react';
 import Wrapper from '../components/Wrapper';
 
 export default class Contact extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         firstName: '',
+         lastName: '',
+         email: '',
+         location: '',
+         password: '',
+         errors: {},
+      };
+
+      this.sendData = this.sendData.bind(this);
+   }
+
+   componentDidMount() {
+      if (this.props.auth.isAuthenticated) {
+         this.props.history.push('/home');
+      }
+   }
+
+   componentWillReceiveProps(nextProps) {
+      if (nextProps.errors) {
+         this.setState({ errors: nextProps.errors });
+      }
+   }
+
+   onChange = (e) => {
+      this.setState({ [e.target.name]: e.target.value });
+   };
+
+   onSubmit = (e) => {
+      e.preventDefault();
+
+      const newUser = {
+         name: this.state.name,
+         email: this.state.email,
+         password: this.state.password,
+         password2: this.state.password2,
+      };
+
+      this.props.registerUser(newUser, this.props.history);
+   };
+
+   async sendData() {
+      fetch('/api/user/', {
+         method: 'post',
+         body: JSON.stringify({
+            title: this.title,
+         }),
+         headers: {
+            'Content-Type': 'application/json',
+         },
+      })
+         .then((res) => res.json())
+         .then((status) => {
+            if (status.success === false) {
+               //show failure page
+            } else {
+               fetch('/api/person', {
+                  method: 'post',
+                  body: JSON.stringify([
+                     {
+                        phoneNum: this.phoneNum,
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                     },
+                     {
+                        id: status.id,
+                     },
+                  ]),
+                  headers: {
+                     'Content-Type': 'application/json',
+                  },
+               })
+                  .then((res) => res.json())
+                  .then((status) => {
+                     if (status.success === false) {
+                        //show failure page
+                     } else {
+                        //show success page
+                     }
+                  });
+            }
+         });
+   }
+
    render() {
       const inputs = [
          {

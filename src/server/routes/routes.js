@@ -11,31 +11,31 @@ const routes = [
    {
       path: '/',
       exact: true,
-      view: <Home />,
+      main: () => <Home />,
    },
    {
       path: '/news',
-      view: <News />,
+      main: () => <News />,
    },
    {
       path: '/events',
-      view: <Events />,
+      main: () => <Events />,
    },
    {
       path: '/memories',
-      view: <Memories />,
+      main: () => <Memories />,
    },
    {
       path: '/contact',
-      view: <Contact />,
+      main: () => <Contact />,
    },
    {
       path: '/account',
-      view: <Account />,
+      main: () => <Account />,
    },
    {
       path: '/join',
-      view: <Signup />,
+      main: () => <Signup />,
    },
 ];
 

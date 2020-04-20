@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../assets/img/icon.png';
 
 export default class Header extends Component {
@@ -10,7 +9,9 @@ export default class Header extends Component {
                <img src={logo} alt="logo" />
                <p className="memorium">In Memory of Caleb Penn Maeir</p>
             </div>
-            <a href="#menu">Menu</a>
+            <a href="#menu" onClick={() => this.props.toggleNav()}>
+               Menu
+            </a>
          </header>
       );
    }
