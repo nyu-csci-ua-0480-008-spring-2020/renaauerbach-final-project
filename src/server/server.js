@@ -5,8 +5,8 @@ const path = require('path');
 require('dotenv').config();
 // const cors = require('cors');
 
-const memoryRouter = require('./routes/api/memories');
-const eventRouter = require('./routes/api/events');
+const memoryRouter = require('./api/memories');
+const eventRouter = require('./api/events');
 
 const app = express();
 const PORT = process.env.PORT || 3000;

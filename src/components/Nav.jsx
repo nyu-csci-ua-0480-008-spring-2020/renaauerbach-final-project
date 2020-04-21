@@ -13,9 +13,6 @@ export default class Nav extends Component {
                         <Link to="/">Home</Link>
                      </li>
                      <li>
-                        <Link to="/news">News</Link>
-                     </li>
-                     <li>
                         <Link to="/events">Events</Link>
                      </li>
                      <li>
@@ -23,12 +20,6 @@ export default class Nav extends Component {
                      </li>
                      <li>
                         <Link to="/contact">Contact Us</Link>
-                     </li>
-                     <li>
-                        <Link to="/account">My Account</Link>
-                     </li>
-                     <li>
-                        <Link to="/join">Sign Up</Link>
                      </li>
                   </Router>
                </ul>
