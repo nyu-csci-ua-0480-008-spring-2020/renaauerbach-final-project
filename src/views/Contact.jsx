@@ -36,6 +36,7 @@ export default class Contact extends Component {
             required: true,
          },
       ];
+
       const form = {
          style: { background: 'black' },
          method: 'POST',
@@ -54,6 +55,9 @@ export default class Contact extends Component {
                text={text}
                form={form}
             />
+            <p className="push">
+               *You can expect a response within 24 - 48 hours
+            </p>
          </div>
       );
    }

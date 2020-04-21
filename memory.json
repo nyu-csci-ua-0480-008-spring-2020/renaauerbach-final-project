@@ -1,0 +1,10 @@
+{
+    "title": "First grade class",
+    "author": {
+        "firstName": "Rena",
+        "lastName": "Auerbach"
+    },
+    "text": "I loved being in the same class as Caleb in first grade!",
+    "image": "", // an optional image
+    "createdAt": "" // timestamp
+}

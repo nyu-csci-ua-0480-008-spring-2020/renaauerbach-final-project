@@ -9,8 +9,8 @@ router.get('/events', (req, res, next) => {
       .catch(next);
 });
 
-router.post('/events', (req, res, next) => {
-   if (req.body.title) {
+router.post('/events/register', (req, res, next) => {
+   if (req.body.email) {
       Events.create(req.body)
          .then((data) => res.json(data))
          .catch(next);
@@ -19,12 +19,6 @@ router.post('/events', (req, res, next) => {
          error: 'The input field is empty',
       });
    }
-});
-
-router.delete('/events/:id', (req, res, next) => {
-   Events.findOneAndDelete({ _id: req.params.id })
-      .then((data) => res.json(data))
-      .catch(next);
 });
 
 module.exports = router;

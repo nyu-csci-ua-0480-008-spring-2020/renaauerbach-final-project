@@ -6,18 +6,14 @@ export default class Events extends Component {
    constructor() {
       super(props);
       this.state = {
-         isLoading: false,
          events: [],
       };
    }
 
    componentDidMount = async () => {
-      this.setState({ isLoading: true });
-
-      await api.getAllMovies().then((movies) => {
+      await api.getAllEvents().then((events) => {
          this.setState({
-            movies: movies.data.data,
-            isLoading: false,
+            events: events.data.data,
          });
       });
    };

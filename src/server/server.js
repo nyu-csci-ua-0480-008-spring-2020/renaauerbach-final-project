@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 // const cors = require('cors');
 
-// const userRouter = require('./routes/api/users');
+const userRouter = require('./routes/api/users');
 const eventRouter = require('./routes/api/events');
 
 const app = express();
@@ -30,8 +30,8 @@ mongoose
 
 mongoose.Promise = global.Promise;
 
-// Routes
-// app.use('/api/users', userRouter);
+Routes;
+app.use('/api/users', userRouter);
 app.use('/api/events', eventRouter);
 
 app.use((req, res, next) => {

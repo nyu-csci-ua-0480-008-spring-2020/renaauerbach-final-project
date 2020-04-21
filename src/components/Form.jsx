@@ -21,6 +21,7 @@ export default class Form extends Component {
                      className={input.className ? input.className : null}
                      type={input.type}
                      name={input.name}
+                     onChange={this.props.onChange}
                      placeholder={input.placeholder}
                      required={input.required ? true : false}
                   />
@@ -37,13 +38,10 @@ export default class Form extends Component {
                   className="submit"
                   type="submit"
                   name="submit"
+                  onClick={this.props.onClick}
                   value={this.props.submit}
                />
             </form>
-
-            <p className="push">
-               *You can expect a response within 24 - 48 hours
-            </p>
          </div>
       );
    }
