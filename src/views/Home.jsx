@@ -10,24 +10,22 @@ export default class Home extends Component {
    render() {
       return (
          <React.Fragment>
-            <Banner />
-            <div className="main">
-               <Wrapper
-                  wrap="style1"
-                  img={image1}
-                  alt="Runner in Team Caleb shirt"
-                  title="Our Mission"
-                  id="mission"
-                  text="Our mission is to provide sports programs in underprivileged
+            <Wrapper
+               wrap="style1"
+               img={image1}
+               alt="Runner in Team Caleb shirt"
+               title="Our Mission"
+               id="mission"
+               text="Our mission is to provide sports programs in underprivileged
                 communities with the necessary funds and equipment to play the
                 sports every child loves."
-               />
-               <Wrapper
-                  wrap="style2"
-                  img={image2}
-                  alt="Photo of Caleb Penn Maeir"
-                  title="About Us"
-                  text="Team Caleb began in 2015, when our close friend,
+            />
+            <Wrapper
+               wrap="style2"
+               img={image2}
+               alt="Photo of Caleb Penn Maeir"
+               title="About Us"
+               text="Team Caleb began in 2015, when our close friend,
           Caleb Maeir, was diagnosed with cancer. As a humble group of
           high-schoolers, we rallied together in support of Caleb and to
           remind him that he was never alone in his courageous, but
@@ -43,14 +41,13 @@ export default class Home extends Component {
           2017, we have made it our mission to keep Caleb’s legacy alive by
           raising funds and buying equipment for sports programs in
           underprivileged communities."
-               />
-               <Wrapper
-                  wrap="style1"
-                  title="Join the Team!"
-                  text="Come join us at one of our upcoming events!"
-                  button={{ link: '/events', text: 'Upcoming Events' }}
-               />
-            </div>
+            />
+            <Wrapper
+               wrap="style1"
+               title="Join the Team!"
+               text="Come join us at one of our upcoming events!"
+               button={{ link: '/events', text: 'Upcoming Events' }}
+            />
          </React.Fragment>
       );
    }

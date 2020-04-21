@@ -47,7 +47,7 @@ export default class Contact extends Component {
       };
 
       return (
-         <div className="main">
+         <React.Fragment>
             <Wrapper
                wrap="style1"
                title="Contact Us"
@@ -58,7 +58,7 @@ export default class Contact extends Component {
             <p className="push">
                *You can expect a response within 24 - 48 hours
             </p>
-         </div>
+         </React.Fragment>
       );
    }
 }

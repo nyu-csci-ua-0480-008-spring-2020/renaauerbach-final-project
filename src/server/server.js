@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 // const cors = require('cors');
 
-const userRouter = require('./routes/api/users');
+const memoryRouter = require('./routes/api/memories');
 const eventRouter = require('./routes/api/events');
 
 const app = express();
@@ -31,7 +31,7 @@ mongoose
 mongoose.Promise = global.Promise;
 
 Routes;
-app.use('/api/users', userRouter);
+app.use('/api/memories', memoryRouter);
 app.use('/api/events', eventRouter);
 
 app.use((req, res, next) => {
@@ -47,10 +47,6 @@ app.get('/', (req, res) => {
    res.render('App');
 });
 
-app.get('/news', (req, res) => {
-   res.render('News', {});
-});
-
 app.get('/events', (req, res) => {
    Event.find({}, (events) => {
       res.render('Events', {
@@ -63,43 +59,20 @@ app.get('/events/register', (req, res) => {
    res.render('Register', {});
 });
 
-//TODO: EVENT REGISTRATION PAGE
+app.get('/memories', (req, res) => {
+   Memories.find({}, (memories) => {
+      res.render('Memories', {
+         memories: memories,
+      });
+   });
+});
+
+app.get('/memories/new', (req, res) => {
+   res.render('NewMemory', {});
+});
 
 app.get('/contact', (req, res) => {
    res.render('Contact', {});
-});
-
-app.get('/account', (req, res) => {
-   User.find({ session: res.locals.user }, (err, result) => {
-      res.render('Account', {});
-   });
-});
-
-app.get('/join', (req, res) => {
-   res.render('Signup');
-});
-
-app.post('/join', (req, res) => {
-   console.log(req.body);
-   const newUser = new User({
-      username: req.body.email,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      location: req.body.location,
-      events: [],
-      memories: [],
-   });
-
-   newUser.save((err, user) => {
-      if (err) {
-         res.render('Signup', {
-            error: 'There was an error with your account. Please try again.',
-         });
-      } else {
-         res.redirect('/account');
-      }
-   });
 });
 
 app.listen(PORT, () => {

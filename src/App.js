@@ -6,8 +6,6 @@ import Header from './components/Header';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 
-import setAuthToken from './server/utils/setAuthToken';
-
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -16,12 +14,6 @@ export default class App extends Component {
 		};
 		this.toggleNav = this.toggleNav.bind(this);
 	}
-
-	// componentDidMount() {
-	// 	if (this.props.auth.isAuthenticated) {
-	// 		this.props.history.push('/home');
-	// 	}
-	// }
 
 	toggleNav() {
 		this.setState({ showNav: !this.state.showNav });
@@ -44,12 +36,9 @@ export default class App extends Component {
 						))}
 					</Switch>
 				</Router>
-				,{this.props.component}
+				{this.props.component === 'Home' ? <Banner /> : null}
+				<div className="main">{this.props.component}</div>
 				<Footer />
-				{/* <h1>Users</h1> */}
-				{/* {this.state.users.map(user => ( */}
-				{/* 	<div key={user.id}>{user.username}</div> */}
-				{/* ))} */}
 			</React.Fragment>
 		);
 	}
