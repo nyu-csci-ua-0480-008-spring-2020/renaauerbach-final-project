@@ -22,10 +22,6 @@ const routes = [
       main: () => <Events />,
    },
    {
-      path: '/memories',
-      main: () => <Memories />,
-   },
-   {
       path: '/contact',
       main: () => <Contact />,
    },

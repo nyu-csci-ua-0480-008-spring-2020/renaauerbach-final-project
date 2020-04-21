@@ -1,26 +1,30 @@
-import axios from 'axios';
+const express = require('express');
+const router = express.Router();
 
-const api = axios.create({
-   baseURL: 'http://localhost:3000/api',
+const Events = require('../../models/Event');
+
+router.get('/events', (req, res, next) => {
+   Events.find({}, 'title')
+      .then((data) => res.json(data))
+      .catch(next);
 });
 
-export const createUser = (payload) => api.post('/join', payload);
-export const registerUser = (id) => api.put('/event/register/${id}');
-export const unregisterUser = (id) => api.put('/event/register/${id}');
-export const addMemoryToUser = (id, payload) =>
-   api.put('/memory/new/${id}', payload);
-export const deleteUser = (id) => api.delete('/account/${id}');
-export const updateUser = (id) => api.put('/account/${id}');
-export const getUserById = (id) => api.get('/account/${id}');
+router.post('/events', (req, res, next) => {
+   if (req.body.title) {
+      Events.create(req.body)
+         .then((data) => res.json(data))
+         .catch(next);
+   } else {
+      res.json({
+         error: 'The input field is empty',
+      });
+   }
+});
 
-const apis = {
-   createUser,
-   registerUser,
-   unregisterUser,
-   addMemoryToUser,
-   deleteUser,
-   updateUser,
-   getUserById,
-};
+router.delete('/events/:id', (req, res, next) => {
+   Events.findOneAndDelete({ _id: req.params.id })
+      .then((data) => res.json(data))
+      .catch(next);
+});
 
-export default apis;
+module.exports = router;

@@ -1,63 +1,63 @@
 {
-  "name": "renaauerbach-final-project",
-  "version": "1.0.0",
-  "private": true,
-  "main": "index.js",
-  "dependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.0.0",
-    "axios": "^0.19.2",
-    "bcrypt": "^4.0.1",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.7",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
-    "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-bootstrap": "^1.0.0",
-    "react-dom": "^16.13.1",
-    "react-modal": "^3.11.2",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.1",
-    "validator": "^13.0.0",
-    "webpack": "^4.42.1"
-  },
-  "scripts": {
-    "client": "cd src && npm start ",
-    "server": "cd server && npm start ",
-    "dev": "concurrently \"npm run server \" \"npm run client\"",
-    "webpack": "webpack",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "dev:server": "cd src && npm run build && cd .. && npm run start"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/node": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
-    "babel-eslint": "^10.1.0",
-    "concurrently": "^5.1.0",
-    "nodemon": "^2.0.2",
-    "webpack-cli": "^3.3.11"
-  }
+   "name": "renaauerbach-final-project",
+   "version": "1.0.0",
+   "private": true,
+   "main": "index.js",
+   "dependencies": {
+      "@babel/cli": "^7.0.0",
+      "@babel/core": "^7.9.0",
+      "@babel/preset-env": "^7.0.0",
+      "axios": "^0.19.2",
+      "bcrypt": "^4.0.1",
+      "body-parser": "^1.19.0",
+      "cors": "^2.8.5",
+      "express": "^4.17.1",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^5.9.7",
+      "passport": "^0.4.1",
+      "passport-jwt": "^4.0.0",
+      "prettier": "^2.0.4",
+      "react": "^16.13.1",
+      "react-bootstrap": "^1.0.0",
+      "react-dom": "^16.13.1",
+      "react-modal": "^3.11.2",
+      "react-router-dom": "^5.1.2",
+      "react-scripts": "^3.4.1",
+      "validator": "^13.0.0",
+      "webpack": "^4.42.1"
+   },
+   "scripts": {
+      "client": "cd src && npm start ",
+      "server": "cd server && npm start ",
+      "dev": "concurrently \"npm run server \" \"npm run client\"",
+      "webpack": "webpack",
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "dev:server": "cd src && npm run build && cd .. && npm run start"
+   },
+   "eslintConfig": {
+      "extends": "react-app"
+   },
+   "browserslist": {
+      "production": [
+         ">0.2%",
+         "not dead",
+         "not op_mini all"
+      ],
+      "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+      ]
+   },
+   "devDependencies": {
+      "@babel/node": "^7.0.0",
+      "@babel/plugin-proposal-class-properties": "^7.8.3",
+      "@babel/plugin-transform-runtime": "^7.9.0",
+      "@babel/preset-react": "^7.9.4",
+      "babel-eslint": "^10.1.0",
+      "concurrently": "^5.1.0",
+      "nodemon": "^2.0.2",
+      "webpack-cli": "^3.3.11"
+   }
 }

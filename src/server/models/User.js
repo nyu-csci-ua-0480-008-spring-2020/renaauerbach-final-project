@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
    lastName: { type: String, required: true },
    location: { type: String },
    events: { type: Array },
-   memories: { type: Array },
 });
 
 module.exports = mongoose.model('User', userSchema);
