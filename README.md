@@ -8,40 +8,25 @@ This web application is designed for users to register for upcoming TC events an
 
 ## Data Model
 
-The application will store Users, Events, and Memories	
+The application will store Events and Memories	
 
-* Users can register for multiple Events (via references)
-* Events can have multiple registered Users (via reference)
+* Events can have multiple registered participants (individual objects)
+* Memories can have authors (individual objects)
 
-An Example User with referenced Events and Memories:
-
-```javascript
-{
-  username: "renaauerbach",
-  hash: // a password hash,
-  email: "rma453@nyu.edu",
-  firstName: "Rena",
-  lastName: "Auerbach",
-  location: "Chicago, IL",
-  events: [] // an array of references to Event documents,
-  memories: [] // an array of references to Memory documents
-}
-```
-
-An Example Event with referenced Users:
+An Example Event:
 
 ```javascript
 {
-  title: "Jerusalem Marathon",
+  title: "NYC Marathon",
   date: "2020-03-20T10:30:00.000Z",
-  location: "Jerusalem, Israel",
-  users: [] //an array of references to Users 
+  location: "New York, New York",
+  participants: [] //an array of registered participant objects
   image: // an optional event image
   createdAt: // timestamp
 }
 ```
 
-An Example Memory with embedded User (Author):	
+An Example Memory:	
 
 ```javascript	
 {	
@@ -53,11 +38,9 @@ An Example Memory with embedded User (Author):
 }	
 ```	
 
-
 ## [Link to Commented First Draft Schema](db.js) 
 
 ## Wireframes
-
 
 /events - page for viewing events
 
@@ -85,15 +68,11 @@ An Example Memory with embedded User (Author):
 
 ## User Stories or Use Cases
 
-1. As a non-registered user, I can register a new account with the site
-3. As a non-registered user, I can view the events page
-4. As a non-registered user, I can view the memory book page
-5. As a non-registered user, I can contact the organization via the contact page
-6. As a user, I can log in to the site
-7. As a user, I can register for an event
-8. As a user, I can view all the events I am registered for
-9. As a user, I can author a new memory	
-10. As a user, I can view all the memories I have authored
+1. As a user, I can view the events page
+2. As a user, I can register for an event
+3. As a user, I can view the memory book page
+4. As a user, I can author a new memory	
+5. As a user, I can contact the organization via the contact page
 
 ## Research Topics
 
