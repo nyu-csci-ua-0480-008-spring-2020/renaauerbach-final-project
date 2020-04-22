@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import ListEvents from './ListEvents';
+import Wrapper from '../components/Wrapper';
+import ListEvents from '../components/ListEvents';
 
 export default class Events extends Component {
    state = {
-      memories: [],
+      events: [],
    };
 
    componentDidMount() {
-      this.getMemories();
+      this.getEvemts();
    }
 
-   getMemories = () => {
+   getEvemts = () => {
       axios
-         .get('/api/memories')
+         .get('/api/events')
          .then((res) => {
             if (res.data) {
                this.setState({
-                  memories: res.data,
+                  events: res.data,
                });
             }
          })
@@ -27,7 +28,7 @@ export default class Events extends Component {
 
    render() {
       const text = 'Join us at one of our upcoming events!';
-      let { memories } = this.state;
+      let { events } = this.state;
 
       return (
          <React.Fragment>
@@ -35,6 +36,7 @@ export default class Events extends Component {
                wrap="style1"
                title="Upcoming Events"
                id="email"
+               top
                text={text}
             />
             <ListEvents events={events} />

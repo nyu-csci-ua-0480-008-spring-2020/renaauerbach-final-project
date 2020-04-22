@@ -10,6 +10,7 @@ export default class Home extends Component {
    render() {
       return (
          <React.Fragment>
+            <Banner />
             <Wrapper
                wrap="style1"
                img={image1}

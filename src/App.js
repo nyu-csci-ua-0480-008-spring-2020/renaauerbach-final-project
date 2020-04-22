@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import routes from './server/routes/routes';
+import routes from './server/routes';
 
 import Header from './components/Header';
 import Nav from './components/Nav';
@@ -20,10 +20,11 @@ export default class App extends Component {
 	}
 
 	render() {
+		let { showNav } = this.state;
 		return (
 			<React.Fragment>
 				<Header toggleNav={this.toggleNav} />
-				<Nav showNav={this.state.showNav} toggleNav={this.toggleNav} />
+				<Nav showNav={showNav} toggleNav={this.toggleNav} />
 				<Router>
 					<Switch>
 						{routes.map((route, index) => (
@@ -36,7 +37,6 @@ export default class App extends Component {
 						))}
 					</Switch>
 				</Router>
-				{this.props.component === 'Home' ? <Banner /> : null}
 				<div className="main">{this.props.component}</div>
 				<Footer />
 			</React.Fragment>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import Form from './Form';
+import Button from './Button';
 
 export default class Wrapper extends Component {
    constructor(props) {
@@ -15,12 +17,15 @@ export default class Wrapper extends Component {
             {this.props.img === undefined ? (
                <div className="inner_a">
                   <header className="align-center">
-                     <h1>{this.props.title}</h1>
+                     <h1 className={this.props.top ? 'title' : null}>
+                        {this.props.title}
+                     </h1>
                      <p>{this.props.text}</p>
                      {this.props.button ? (
-                        <NavLink to={this.props.button.link} className="button">
-                           {this.props.button.text}
-                        </NavLink>
+                        <Button
+                           link={this.props.button.link}
+                           text={this.props.button.text}
+                        />
                      ) : null}
                   </header>
                   {this.props.form ? <Form {...this.props.form} /> : null}

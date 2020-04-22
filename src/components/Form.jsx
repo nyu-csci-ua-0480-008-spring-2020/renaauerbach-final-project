@@ -4,7 +4,18 @@ export default class Form extends Component {
    constructor(props) {
       super(props);
       this.props = this.props.form;
+      this.state = {
+         submitted: false,
+      };
+
+      this.handleSubmit = this.handleSubmit.bind(this);
    }
+
+   handleSubmit = () => {
+      this.setState({
+         submitted: true,
+      });
+   };
 
    render() {
       return (
@@ -34,6 +45,7 @@ export default class Form extends Component {
                      required
                   ></textarea>
                ) : null}
+               <br />
                <input
                   className="submit"
                   type="submit"

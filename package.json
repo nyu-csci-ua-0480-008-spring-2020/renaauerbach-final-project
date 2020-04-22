@@ -28,7 +28,7 @@
    },
    "scripts": {
       "client": "cd src && npm start ",
-      "server": "cd server && npm start ",
+      "server": "cd src/server && npm start ",
       "dev": "concurrently \"npm run server \" \"npm run client\"",
       "webpack": "webpack",
       "start": "react-scripts start",

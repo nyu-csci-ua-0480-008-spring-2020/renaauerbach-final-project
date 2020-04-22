@@ -44,6 +44,7 @@ export default class Contact extends Component {
          inputs: inputs,
          textarea: 'true',
          submit: 'Submit',
+         onClick: '',
       };
 
       return (
@@ -52,6 +53,7 @@ export default class Contact extends Component {
                wrap="style1"
                title="Contact Us"
                id="email"
+               top
                text={text}
                form={form}
             />

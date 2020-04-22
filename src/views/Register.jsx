@@ -42,6 +42,7 @@ export default class Register extends Component {
          <Wrapper
             wrap="style1"
             title="Upcoming Events"
+            top
             text={text}
             form={form}
          />
