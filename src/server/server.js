@@ -30,7 +30,7 @@ mongoose
 
 mongoose.Promise = global.Promise;
 
-Routes;
+// Routes
 app.use('/api/memories', memoryRouter);
 app.use('/api/events', eventRouter);
 
@@ -47,29 +47,17 @@ app.get('/', (req, res) => {
    res.render('App');
 });
 
-app.get('/events', (req, res) => {
-   Event.find({}, (events) => {
-      res.render('Events', {
-         events: events,
-      });
-   });
-});
-
-app.get('/events/register', (req, res) => {
-   res.render('Register', {});
-});
-
-app.get('/memories', (req, res) => {
-   Memories.find({}, (memories) => {
-      res.render('Memories', {
-         memories: memories,
-      });
-   });
-});
-
-app.get('/memories/new', (req, res) => {
-   res.render('NewMemory', {});
-});
+// app.get('/events', (req, res) => {
+//    Event.find({}, (events) => {
+//       res.render('Events', {
+//          events: events,
+//       });
+//    });
+// });
+//
+// app.get('/events/register', (req, res) => {
+//    res.render('Register', {});
+// });
 
 app.get('/contact', (req, res) => {
    res.render('Contact', {});

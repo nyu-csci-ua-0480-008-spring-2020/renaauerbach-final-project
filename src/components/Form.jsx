@@ -26,7 +26,7 @@ export default class Form extends Component {
                name="form"
                action={this.props.action}
             >
-               {this.props.inputs.map((input, index) => (
+               {this.props.inputs.map((input, index) => [
                   <input
                      key={index}
                      className={input.className ? input.className : null}
@@ -35,9 +35,9 @@ export default class Form extends Component {
                      onChange={this.props.onChange}
                      placeholder={input.placeholder}
                      required={input.required ? true : false}
-                  />
-               ))}
-               <br />
+                  />,
+                  <br />,
+               ])}
                {this.props.textarea ? (
                   <textarea
                      name="msg"

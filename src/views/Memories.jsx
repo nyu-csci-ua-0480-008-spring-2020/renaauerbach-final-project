@@ -7,9 +7,14 @@ import Form from '../components/Form';
 import ListMemories from '../components/ListMemories';
 
 export default class Memories extends Component {
-   state = {
-      memories: [],
-   };
+   constructor() {
+      super();
+      this.state = {
+         memories: [],
+      };
+
+      this.handleChange = this.handleChange.bind(this);
+   }
 
    componentDidMount() {
       this.getMemories();
@@ -26,6 +31,17 @@ export default class Memories extends Component {
             }
          })
          .catch((err) => console.log(err));
+   };
+
+   handleChange = (e) => {
+      this.setState({
+         ...this.state.request_data,
+         [e.data.target]: e.data.value,
+      });
+   };
+
+   onSubmit = () => {
+      console.log(this.state.request_data); // you should be able to see your form data
    };
 
    render() {
@@ -52,7 +68,7 @@ export default class Memories extends Component {
          inputs: inputs,
          textarea: 'true',
          submit: 'Share Memory',
-         onClick: '',
+         onClick: this.handleChange,
       };
       const toggleText =
          "We'd love for you to add your own memories of Caleb to our Memory Book.";

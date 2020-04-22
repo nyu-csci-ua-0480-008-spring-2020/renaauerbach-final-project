@@ -1,13 +1,25 @@
-import { Router } from 'express';
-import bodyParser from 'body-parser';
-
 const express = require('express');
 const router = express.Router();
 
-router.post('/memories/new', MemoryCtrl.createMemory);
-router.put('/memories/:id', MemoryCtrl.updateMemory);
-router.delete('/memories/:id', MemoryCtrl.deleteMemory);
-router.get('/memories/:id', MemoryCtrl.getMemoryById);
-router.get('/memories', MemoryCtrl.getMemories);
+const Memory = require('../models/Memory');
+
+router.get('/memories', (req, res, next) => {
+   Memory.find({}, 'title' => {
+      .then((data) => res.json(data))
+      .catch(next);
+   });
+});
+
+router.post('/memories', (req, res, next) => {
+   if (req.body.title) {
+      Memory.create(req.body)
+         .then((data) => res.json(data))
+         .catch(next);
+   } else {
+      res.json({
+         error: 'The input field is empty',
+      });
+   }
+});
 
 module.exports = router;

@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const Events = require('../models/Event');
+const Event = require('../models/Event');
 
 router.get('/events', (req, res, next) => {
-   Events.find({}, 'title')
+   Event.find({}, 'title')
       .then((data) => res.json(data))
       .catch(next);
 });
 
 router.post('/events/register', (req, res, next) => {
    if (req.body.email) {
-      Events.create(req.body)
+      Event.create(req.body)
          .then((data) => res.json(data))
          .catch(next);
    } else {
