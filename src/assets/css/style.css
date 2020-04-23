@@ -1984,7 +1984,7 @@ footer {
 	padding: 5px;
 	background: #D7FC51;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 }
 
