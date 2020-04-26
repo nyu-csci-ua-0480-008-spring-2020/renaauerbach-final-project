@@ -35,7 +35,7 @@ p.no-data-msg, p.push {
 
 div.main {
 	min-height: 100%;
-	margin-bottom: -85px;	/*Equal to footer height*/	
+	margin-bottom: 85px;	/*Equal to footer height*/	
 }
 
 div.main:after {
@@ -486,6 +486,7 @@ button.special:active,
 /* Form */
 
 form {
+	background-color: #000;
 	text-align: center;
 	padding: 1em;
 	margin: 0 auto;
@@ -494,8 +495,7 @@ form {
 
 /* form>input.names {
 	margin-bottom: 10px;
-}
-
+} */
 
 /* First Name Input */
 
@@ -1716,7 +1716,7 @@ body.subpage {
 }
 
 
-/* Nav Menu - DONE */
+/* Nav Menu */
 
 #menu {
 	-moz-transform: translateX(20em);

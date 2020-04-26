@@ -35,11 +35,7 @@ export default class Nav extends Component {
                         <a href="/contact">Contact Us</a>
                      </li>
                   </ul>
-                  <a
-                     href="#menu"
-                     className="close"
-                     onClick={this.handleClose}
-                  ></a>
+                  <a href="" className="close" onClick={this.handleClose}></a>
                </React.Fragment>
             ) : null}
          </nav>

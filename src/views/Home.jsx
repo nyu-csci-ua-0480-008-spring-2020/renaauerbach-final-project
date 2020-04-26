@@ -9,7 +9,8 @@ import image2 from '../assets/img/caleb.jpg';
 export default class Home extends Component {
    render() {
       return (
-         <React.Fragment>
+         <div className="main">
+            {' '}
             <Banner />
             <Wrapper
                wrap="style1"
@@ -49,7 +50,7 @@ export default class Home extends Component {
                text="Come join us at one of our upcoming events!"
                button={{ link: '/events', text: 'Upcoming Events' }}
             />
-         </React.Fragment>
+         </div>
       );
    }
 }

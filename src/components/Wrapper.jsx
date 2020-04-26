@@ -19,7 +19,10 @@ export default class Wrapper extends Component {
                      <h1 className={this.props.top ? 'title' : null}>
                         {this.props.title}
                      </h1>
-                     <p>{this.props.text}</p>
+                     <p>
+                        {this.props.text}
+                        {this.props.addedElement}
+                     </p>
                      {this.props.button ? (
                         <Button
                            link={this.props.button.link}

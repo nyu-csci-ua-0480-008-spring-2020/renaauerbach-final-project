@@ -39,13 +39,15 @@ export default class Register extends Component {
       const text = 'Join us at one of our upcoming events!';
 
       return (
-         <Wrapper
-            wrap="style1"
-            title="Upcoming Events"
-            top
-            text={text}
-            form={form}
-         />
+         <div className="main">
+            <Wrapper
+               wrap="style1"
+               title="Upcoming Events"
+               top
+               text={text}
+               form={form}
+            />
+         </div>
       );
    }
 }

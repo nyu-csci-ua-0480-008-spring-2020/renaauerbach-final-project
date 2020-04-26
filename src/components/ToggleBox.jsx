@@ -22,7 +22,7 @@ export default class ToggleBox extends Component {
 
       return (
          <div className="toggle">
-            <p>{this.props.text}</p>
+            <p className="push">{this.props.text}</p>
             {opened ? (
                <div class="toggleContent">{children}</div>
             ) : (

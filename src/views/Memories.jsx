@@ -91,7 +91,8 @@ export default class Memories extends Component {
          "We'd love for you to add your own memories of Caleb to our Memory Book.";
 
       return (
-         <React.Fragment>
+         <div className="main">
+            {' '}
             <Wrapper wrap="style1" title="Memory Book" top text={text} />
             <ToggleBox action="show" text={toggleText}>
                <Form
@@ -100,11 +101,12 @@ export default class Memories extends Component {
                   inputs={inputs}
                   textarea
                   submit={'Share'}
-                  onClick={this.handleChange}
+                  onClick={this.onSubmit}
+                  onChange={this.onChange}
                />
             </ToggleBox>
             <ListMemories memories={memories} />
-         </React.Fragment>
+         </div>
       );
    }
 }

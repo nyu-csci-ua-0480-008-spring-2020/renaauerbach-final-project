@@ -31,7 +31,8 @@ export default class Events extends Component {
       let { events } = this.state;
 
       return (
-         <React.Fragment>
+         <div className="main">
+            {' '}
             <Wrapper
                wrap="style1"
                title="Upcoming Events"
@@ -46,7 +47,7 @@ export default class Events extends Component {
                </p>
             ) : null}
             <ListEvents events={events} />
-         </React.Fragment>
+         </div>
       );
    }
 }

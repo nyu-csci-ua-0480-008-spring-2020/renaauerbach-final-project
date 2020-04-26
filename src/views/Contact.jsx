@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 
 import Wrapper from '../components/Wrapper';
+import Form from '../components/Form';
 
 export default class Contact extends Component {
+   constructor() {
+      super();
+      this.state = {
+         sent: false,
+      };
+
+      this.onSubmit = this.onSubmit.bind(this);
+   }
+
+   onSubmit = () => {
+      this.setState({
+         sent: !this.state.sent,
+      });
+   };
+
    render() {
-      const text =
-         'Send us a message below, or email us directly at ' +
-         <a href="mailto: teamcaleb23@gmail.com">teamcaleb23@gmail.com</a> +
-         '.';
+      const text = 'Send us a message below, or email us directly at ';
+      const addedElement = (
+         <a href="mailto: teamcaleb23@gmail.com">teamcaleb23@gmail.com</a>
+      );
       const inputs = [
          {
             className: 'names info1',
@@ -37,30 +53,37 @@ export default class Contact extends Component {
          },
       ];
 
-      const form = {
-         style: { background: 'black' },
-         method: 'POST',
-         action: 'assets/mail.php',
-         inputs: inputs,
-         textarea: 'true',
-         submit: 'Submit',
-         onClick: '',
-      };
-
       return (
-         <React.Fragment>
+         <div className="main">
             <Wrapper
                wrap="style1"
                title="Contact Us"
                id="email"
                top
                text={text}
-               form={form}
+               addedElement={addedElement}
             />
-            <p className="push">
-               *You can expect a response within 24 - 48 hours
-            </p>
-         </React.Fragment>
+            {!this.state.sent ? (
+               <React.Fragment>
+                  <Form
+                     style={{ background: 'black' }}
+                     method={'POST'}
+                     action="mailto: teamcaleb23@gmail.com"
+                     inputs={inputs}
+                     textarea
+                     submit={'Submit'}
+                     onClick={this.onSubmit}
+                  />
+                  <p className="push">
+                     *You can expect a response within 24 - 48 hours
+                  </p>
+               </React.Fragment>
+            ) : (
+               <p className="no-data-msg">
+                  You're message has been sent! Thank you!
+               </p>
+            )}
+         </div>
       );
    }
 }
