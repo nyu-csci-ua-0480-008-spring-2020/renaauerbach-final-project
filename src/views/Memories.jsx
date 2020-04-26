@@ -61,15 +61,6 @@ export default class Memories extends Component {
             required: true,
          },
       ];
-
-      const form = {
-         style: { background: 'black' },
-         method: 'POST',
-         inputs: inputs,
-         textarea: 'true',
-         submit: 'Share Memory',
-         onClick: this.handleChange,
-      };
       const toggleText =
          "We'd love for you to add your own memories of Caleb to our Memory Book.";
 
@@ -83,7 +74,7 @@ export default class Memories extends Component {
                   inputs={inputs}
                   textarea
                   submit={'Share'}
-                  onClick={''}
+                  onClick={this.handleChange}
                />
             </ToggleBox>
             <ListMemories memories={memories} />

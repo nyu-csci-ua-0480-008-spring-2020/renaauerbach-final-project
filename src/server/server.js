@@ -5,8 +5,8 @@ const path = require('path');
 require('dotenv').config();
 // const cors = require('cors');
 
-const memoryRouter = require('./api/memories');
-const eventRouter = require('./api/events');
+const memoryRouter = require('./api/memory');
+const eventRouter = require('./api/event');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,8 +31,8 @@ mongoose
 mongoose.Promise = global.Promise;
 
 // Routes
-app.use('/api/memories', memoryRouter);
-app.use('/api/events', eventRouter);
+app.use('/api/memory', memoryRouter);
+app.use('/api/event', eventRouter);
 
 app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink, BrowserRouter as Router } from 'react-router-dom';
 
 export default class Nav extends Component {
    constructor(props) {
@@ -23,20 +22,18 @@ export default class Nav extends Component {
             {this.props.showNav ? (
                <React.Fragment>
                   <ul className="links">
-                     <Router>
-                        <li>
-                           <NavLink to="/">Home</NavLink>
-                        </li>
-                        <li>
-                           <NavLink to="/events">Events</NavLink>
-                        </li>
-                        <li>
-                           <NavLink to="/memories">Memory Book</NavLink>
-                        </li>
-                        <li>
-                           <NavLink to="/contact">Contact Us</NavLink>
-                        </li>
-                     </Router>
+                     <li>
+                        <a href="/">Home</a>
+                     </li>
+                     <li>
+                        <a href="/events">Events</a>
+                     </li>
+                     <li>
+                        <a href="/memories">Memory Book</a>
+                     </li>
+                     <li>
+                        <a href="/contact">Contact Us</a>
+                     </li>
                   </ul>
                   <a
                      href="#menu"

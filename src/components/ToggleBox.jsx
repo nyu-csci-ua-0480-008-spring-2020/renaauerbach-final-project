@@ -17,10 +17,8 @@ export default class ToggleBox extends Component {
    }
 
    render() {
-      let { action, children } = this.props;
+      let { children } = this.props;
       const { opened } = this.state;
-
-      action = opened ? 'hide' : 'show';
 
       return (
          <div className="toggle">

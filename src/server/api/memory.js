@@ -4,9 +4,8 @@ const router = express.Router();
 const Memory = require('../models/Memory');
 
 router.get('/memories', (req, res, next) => {
-   Memory.find({}, 'title' => {
-      .then((data) => res.json(data))
-      .catch(next);
+   Memory.find({}, (data) => {
+      res.json(data).catch(next);
    });
 });
 
