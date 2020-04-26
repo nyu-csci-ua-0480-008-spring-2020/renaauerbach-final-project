@@ -7,6 +7,9 @@
       "@babel/cli": "^7.0.0",
       "@babel/core": "^7.9.0",
       "@babel/preset-env": "^7.0.0",
+      "@fortawesome/fontawesome-svg-core": "^1.2.28",
+      "@fortawesome/free-brands-svg-icons": "^5.13.0",
+      "@fortawesome/react-fontawesome": "^0.1.9",
       "axios": "^0.19.2",
       "bcrypt": "^4.0.1",
       "body-parser": "^1.19.0",
@@ -30,8 +33,7 @@
       "dev": "concurrently \"npm run server \" \"npm run client\"",
       "webpack": "webpack",
       "start": "react-scripts start",
-      "build": "react-scripts build",
-      "dev:server": "cd src && npm run build && cd .. && npm run start"
+      "build": "react-scripts build"
    },
    "eslintConfig": {
       "extends": "react-app"
@@ -57,5 +59,6 @@
       "concurrently": "^5.1.0",
       "nodemon": "^2.0.2",
       "webpack-cli": "^3.3.11"
-   }
+   },
+   "proxy": "http://127.0.0.1:3001/"
 }

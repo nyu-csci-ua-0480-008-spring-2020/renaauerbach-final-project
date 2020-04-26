@@ -39,6 +39,12 @@ export default class Events extends Component {
                top
                text={text}
             />
+            {events.length === 0 ? (
+               <p className="no-data-msg">
+                  We don't have any events planned at the momemt, but we will
+                  let you know when we do!
+               </p>
+            ) : null}
             <ListEvents events={events} />
          </React.Fragment>
       );

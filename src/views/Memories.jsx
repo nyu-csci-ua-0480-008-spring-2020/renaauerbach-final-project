@@ -11,13 +11,15 @@ export default class Memories extends Component {
       super();
       this.state = {
          memories: [],
+         title: '',
+         author: '',
+         text: '',
+         image: '',
+         createdAt: new Date(),
       };
 
-      this.handleChange = this.handleChange.bind(this);
-   }
-
-   componentDidMount() {
-      this.getMemories();
+      this.onChange = this.onChange.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
    }
 
    getMemories = () => {
@@ -33,15 +35,39 @@ export default class Memories extends Component {
          .catch((err) => console.log(err));
    };
 
-   handleChange = (e) => {
-      this.setState({
-         ...this.state.request_data,
-         [e.data.target]: e.data.value,
-      });
+   componentDidMount() {
+      this.getMemories();
+   }
+
+   onChange = (e) => {
+      this.setState({ [e.target.name]: e.target.value });
    };
 
-   onSubmit = () => {
-      console.log(this.state.request_data); // you should be able to see your form data
+   onSubmit = (e) => {
+      e.preventDefault();
+
+      const data = {
+         title: this.state.title,
+         author: this.state.author,
+         text: this.state.text,
+         image: this.state.image,
+         createdAt: this.state.createdAt,
+      };
+
+      axios
+         .post('api/memories', data)
+         .then((res) => {
+            this.setState({
+               title: '',
+               author: '',
+               text: '',
+               image: '',
+            });
+            this.props.history.push('/');
+         })
+         .catch((err) => {
+            console.log('Error in Memories');
+         });
    };
 
    render() {

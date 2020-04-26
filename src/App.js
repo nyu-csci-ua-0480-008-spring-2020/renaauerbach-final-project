@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import routes from './server/routes';
-
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
@@ -20,6 +21,7 @@ export default class App extends Component {
 	}
 
 	render() {
+		library.add(fab);
 		let { showNav } = this.state;
 		return (
 			<React.Fragment>

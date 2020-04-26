@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-/* @import url(font-awesome.min.css); */
-
 @import url('https://fonts.googleapis.com/css?family=Cambay:400,700|Cantarell:400,700|Hind:300,400,500,600,700|Khula:300,400,600,700,800|Lato|Mallanna|Quattrocento+Sans:400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i');
 .smaller {
 	font-size: 75%;
@@ -22,19 +20,32 @@
 html {
 	height: 100%;
 	background-color: #000;
+	overflow: auto;
+}
+
+body {
+	position: relative;
+}
+
+p.no-data-msg, p.push {
+	background-color: #000;
+	font-size: 16px;
+	text-align: center;
+}
+
+div.main {
+	min-height: 100%;
+	margin-bottom: -85px;	/*Equal to footer height*/	
+}
+
+div.main:after {
+	height: 85px; 
+	background-color: #000;
+	display: block;
 }
 
 li a.selected {
 	color: white;
-}
-
-li a.icon {
-	color: #999999;
-}
-
-p.push {
-	text-align: center;
-	background-color: #000;
 }
 
 div.root{
@@ -79,7 +90,6 @@ th,
 td,
 article,
 details,
-footer,
 header,
 menu,
 nav,
@@ -137,7 +147,6 @@ table {
 	border-spacing: 0;
 }
 
-
 /* Box Model & Toggle Box*/
 
 *,
@@ -160,7 +169,6 @@ table {
 .toggle > .button {
 	display: inline-block;
 }
-
 
 /* Basic */
 
@@ -740,29 +748,6 @@ p.php_text {
 	color: #D7FC51;
 }
 
-
-/* Icon */
-
-.icon {
-	text-decoration: none;
-	border-bottom: none;
-	position: relative;
-}
-
-.icon:before {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-transform: none !important;
-}
-
-.icon>.label {
-	display: none;
-}
-
-
 /* Image */
 
 .image {
@@ -892,14 +877,6 @@ ul.icons {
 ul.icons li {
 	display: inline-block;
 	padding: 0 1.1em 0 0;
-}
-
-ul.icons li:last-child {
-	padding-right: 0;
-}
-
-ul.icons li .icon:before {
-	font-size: 2em;
 }
 
 ul.actions {
@@ -1445,14 +1422,6 @@ table.alt tbody tr td {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
-.wrapper.style2 input[type="submit"].alt.icon:before,
-.wrapper.style2 input[type="reset"].alt.icon:before,
-.wrapper.style2 input[type="button"].alt.icon:before,
-.wrapper.style2 button.alt.icon:before,
-.wrapper.style2 .button.alt.icon:before {
-	color: #67b2e4;
-}
-
 .wrapper.style2 input[type="submit"].special,
 .wrapper.style2 input[type="reset"].special,
 .wrapper.style2 input[type="button"].special,
@@ -1982,20 +1951,22 @@ body.is-loading #banner:before {
 }
 
 
-/* Footer - DONE */
+/* Footer */
 
 footer {
+	height: 85px;
 	padding: 5px;
 	background: #D7FC51;
 	width: 100%;
-	position: relative;
+	position: fixed;
 	bottom: 0;
+	left: 0;
 }
 
 footer .copyright {
 	color: #636363;
 	font-size: 10px;
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	text-align: center;
 }
@@ -2003,14 +1974,14 @@ footer .copyright {
 footer .copyright .icons a {
 	border-radius: 100%;
 	box-shadow: 0px 0px 0px 2px #636363;
+	padding-top: 1px;
 	display: block;
-	font-size: 1em;
 	height: 2.3em;
 	line-height: 2.3em;
 	margin: 0 auto 0.5em;
 	text-align: center;
 	width: 2.3em;
-	color: #999999;
+	color: #636363;
 }
 
 #copy {
