@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Wrapper from '../components/Wrapper';
 import Form from '../components/Form';
@@ -8,16 +9,50 @@ export default class Contact extends Component {
       super();
       this.state = {
          sent: false,
+         name: '',
+         email: '',
+         subject: '',
+         text: '',
+         createdAt: {},
       };
 
       this.onSubmit = this.onSubmit.bind(this);
    }
 
-   onSubmit = () => {
+   onSubmit(e) {
+      e.preventDefault();
+
+      const msg = {
+         name: this.state.name,
+         email: this.state.email,
+         subject: this.state.subject,
+         text: this.state.text,
+         createdAt: new Date(),
+      };
+
       this.setState({
          sent: !this.state.sent,
       });
-   };
+
+      axios
+         .post('http://localhost:3001/api/contact', msg)
+         .then((res) => {
+            this.props.history.push('/');
+            console.log(res.data);
+         })
+         .catch((err) => {
+            console.log('Error in Memories:', err);
+         });
+
+      this.setState({
+         sent: !this.state.sent,
+         name: '',
+         email: '',
+         subject: '',
+         text: '',
+         createdAt: {},
+      });
+   }
 
    render() {
       const text = 'Send us a message below, or email us directly at ';
@@ -60,11 +95,10 @@ export default class Contact extends Component {
                   <Form
                      style={{ background: 'black' }}
                      method={'POST'}
-                     action="mailto: teamcaleb23@gmail.com"
+                     action=""
                      inputs={inputs}
                      textarea
-                     textPlaceholer={'Your Message'}
-                     submit={'Submit'}
+                     submit={'Send'}
                      onClick={this.onSubmit}
                   />
                   <p className="push">

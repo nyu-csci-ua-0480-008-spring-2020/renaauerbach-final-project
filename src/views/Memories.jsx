@@ -26,7 +26,7 @@ export default class Memories extends Component {
          .get('http://localhost:3001/api/memories')
          .then((res) => {
             this.setState({ memories: res.data });
-            console.log(res.data);
+            console.log('Memories: ', res.data);
          })
          .catch((err) => {
             console.log(err);
@@ -40,7 +40,7 @@ export default class Memories extends Component {
    onSubmit(e) {
       e.preventDefault();
 
-      const memoryData = {
+      const memory = {
          title: this.state.title,
          author: this.state.author,
          text: this.state.text,
@@ -48,7 +48,7 @@ export default class Memories extends Component {
       };
 
       axios
-         .post('http://localhost:3001/api/memories', memoryData)
+         .post('http://localhost:3001/api/memories', memory)
          .then((res) => {
             this.props.history.push('/');
             console.log(res.data);
@@ -72,7 +72,7 @@ export default class Memories extends Component {
       const inputs = [
          {
             type: 'text',
-            name: 'full_name',
+            name: 'author',
             placeholder: 'Your Full Name (optional)',
             value: this.state.author,
          },
@@ -96,7 +96,6 @@ export default class Memories extends Component {
                   method={'POST'}
                   inputs={inputs}
                   textarea
-                  textPlaceholer={'Your Memory'}
                   submit={'Share'}
                   onClick={this.onSubmit}
                   onChange={this.onChange}

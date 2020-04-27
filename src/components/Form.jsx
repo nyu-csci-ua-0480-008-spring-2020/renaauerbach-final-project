@@ -41,8 +41,8 @@ export default class Form extends Component {
                ])}
                {this.props.textarea ? (
                   <textarea
-                     name="msg"
-                     placeholder={this.props.textPlaceholder}
+                     name="text"
+                     placeholder="Enter your message here"
                      required
                   ></textarea>
                ) : null}

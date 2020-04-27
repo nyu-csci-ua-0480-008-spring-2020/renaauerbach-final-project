@@ -18,6 +18,7 @@ router.post('/', (req, res) => {
 			res.status(400).json({ success: false, error: err });
 		} else {
 			res.json({ success: true, id: memory.id });
+			console.log('Memory added successfully!');
 			res.redirect('/memories');
 		}
 	});
@@ -36,6 +37,7 @@ router.post('/:id', (req, res) => {
 			res.json({
 				success: true,
 			});
+			console.log('Memory edited successfully!');
 			res.redirect('/memories');
 		}
 	});

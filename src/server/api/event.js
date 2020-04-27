@@ -16,6 +16,7 @@ router.post('/register', (req, res) => {
    const event = Event.findById(req.body.id);
 
    event.registerUser(user);
+   console.log('User registered successfully!');
 });
 
 module.exports = router;

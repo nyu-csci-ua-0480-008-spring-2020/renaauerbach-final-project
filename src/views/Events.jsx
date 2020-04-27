@@ -15,6 +15,7 @@ export default class Events extends Component {
          .get('http://localhost:3001/api/events')
          .then((res) => {
             this.setState({ events: res.data });
+            console.log('Events: ', res.data);
          })
          .catch(function (err) {
             console.log(err);

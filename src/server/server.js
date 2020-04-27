@@ -32,7 +32,7 @@ mongoose
 // Routes
 app.use('/api/memories', memoryRouter);
 app.use('/api/events', eventRouter);
-app.use('/api/messages', messageRouter);
+app.use('/api/contact', messageRouter);
 
 app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
