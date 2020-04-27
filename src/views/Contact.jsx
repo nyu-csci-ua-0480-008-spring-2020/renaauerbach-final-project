@@ -26,17 +26,9 @@ export default class Contact extends Component {
       );
       const inputs = [
          {
-            className: 'names info1',
             type: 'text',
-            name: 'first_name',
-            placeholder: 'First Name',
-            required: true,
-         },
-         {
-            className: 'names info2',
-            type: 'text',
-            name: 'last_name',
-            placeholder: 'Last Name',
+            name: 'name',
+            placeholder: 'Your Full Name',
             required: true,
          },
          {

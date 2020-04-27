@@ -12,6 +12,7 @@ The application will store Events and Memories
 
 * Events can have multiple registered participants (individual objects)
 * Memories can have authors (individual objects)
+* Messages to the company
 
 An Example Event:
 
@@ -20,7 +21,7 @@ An Example Event:
   title: "NYC Marathon",
   date: "2020-03-20T10:30:00.000Z",
   location: "New York, New York",
-  participants: [] //an array of registered participant objects
+  participants: [], //an array of registered participant objects
   image: // an optional event image
   createdAt: // timestamp
 }
@@ -31,9 +32,20 @@ An Example Memory:
 ```javascript	
 {	
   title: "First grade class",	
-  author: {firstName: "Rena", lastName: "Auerbach"},	
-  text: "I loved being in the same class as Caleb in first grade!"	
-  image: // an optional image	
+  author: "Rena Auerbach",	
+  text: "I loved being in the same class as Caleb in first grade!",	
+  createdAt: // timestamp  	
+}	
+```	
+
+An Example Message:	
+
+```javascript	
+{	
+  name: "Rena Auerbach",
+  email: "renaauerbach@nyu.edu",	
+  subject: "T-shirt size",	
+  text: "Hi, I was wondering is the shirts for the Marathon run small? If so, I'd like to change mine to a Medium. Thank you!",	
   createdAt: // timestamp  	
 }	
 ```	
@@ -72,7 +84,7 @@ An Example Memory:
 2. As a user, I can register for an event
 3. As a user, I can view the memory book page
 4. As a user, I can author a new memory	
-5. As a user, I can contact the organization via the contact page
+5. As a user, I can send a message to the organization via the contact page
 
 ## Research Topics
 

@@ -491,23 +491,6 @@ form {
 	vertical-align: middle;
 }
 
-/* First Name Input */
-
-form > input.names {
-	position: relative;
-}
-
-form>input.names.info1 {
-	width: 20%;
-}
-
-/* Last Name Input */
-
-form>input.names.info2 {
-	margin-left: 5px;
-	width: 29.5%;
-} 
-
 label {
 	display: block;
 	font-size: 0.9em;
@@ -1947,7 +1930,6 @@ body.is-loading #banner .inner {
 body.is-loading #banner:before {
 	opacity: 1;
 }
-
 
 /* Footer */
 

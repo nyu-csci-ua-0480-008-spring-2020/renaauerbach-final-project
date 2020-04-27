@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const memoryRouter = require('./api/memory');
 const eventRouter = require('./api/event');
+const messageRouter = require('./api/message');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(cors());
-// app.use('../assets', express.static('assets'));
 
 // Connect to MongoDB
 const db = require('./config/keys').MONGO_URI;
@@ -32,6 +32,7 @@ mongoose
 // Routes
 app.use('/api/memories', memoryRouter);
 app.use('/api/events', eventRouter);
+app.use('/api/messages', messageRouter);
 
 app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
