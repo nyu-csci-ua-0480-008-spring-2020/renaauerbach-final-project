@@ -39,7 +39,7 @@ export default class App extends Component {
 						))}
 					</Switch>
 				</Router>
-				<div className="main">{this.props.component}</div>
+				{this.props.component}
 				<Footer />
 			</React.Fragment>
 		);

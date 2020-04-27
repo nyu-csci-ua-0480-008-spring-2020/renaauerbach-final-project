@@ -11,11 +11,11 @@
       "@fortawesome/free-brands-svg-icons": "^5.13.0",
       "@fortawesome/react-fontawesome": "^0.1.9",
       "axios": "^0.19.2",
-      "bcrypt": "^4.0.1",
       "body-parser": "^1.19.0",
       "cors": "^2.8.5",
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
+      "fetch": "^1.1.0",
       "jsonwebtoken": "^8.5.1",
       "mongoose": "^5.9.7",
       "prettier": "^2.0.4",
@@ -29,8 +29,8 @@
    },
    "scripts": {
       "client": "cd src && npm start ",
-      "server": "cd src/server && npm start ",
-      "dev": "concurrently \"npm run server \" \"npm run client\"",
+      "server": "cd src/server && nodemon server.js",
+      "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
       "webpack": "webpack",
       "start": "react-scripts start",
       "build": "react-scripts build"

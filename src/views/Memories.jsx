@@ -15,60 +15,57 @@ export default class Memories extends Component {
          author: '',
          text: '',
          image: '',
-         createdAt: new Date(),
+         createdAt: {},
       };
 
       this.onChange = this.onChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
    }
 
-   getMemories = () => {
-      axios
-         .get('/api/memories')
-         .then((res) => {
-            if (res.data) {
-               this.setState({
-                  memories: res.data,
-               });
-            }
-         })
-         .catch((err) => console.log(err));
-   };
-
    componentDidMount() {
-      this.getMemories();
+      axios
+         .get('http://localhost:4000/api/memories')
+         .then((res) => {
+            this.setState({ memories: res.data });
+         })
+         .catch(function (err) {
+            console.log(err);
+         });
    }
 
-   onChange = (e) => {
+   onChange(e) {
       this.setState({ [e.target.name]: e.target.value });
-   };
+   }
 
-   onSubmit = (e) => {
+   onSubmit(e) {
       e.preventDefault();
 
-      const data = {
+      const memoryData = {
          title: this.state.title,
          author: this.state.author,
          text: this.state.text,
          image: this.state.image,
-         createdAt: this.state.createdAt,
+         createdAt: new Date(),
       };
 
       axios
-         .post('api/memories', data)
+         .post('http://localhost:3000/api/memories', memoryData)
          .then((res) => {
-            this.setState({
-               title: '',
-               author: '',
-               text: '',
-               image: '',
-            });
             this.props.history.push('/');
+            console.log(res.data);
          })
          .catch((err) => {
             console.log('Error in Memories');
          });
-   };
+
+      this.setState({
+         title: '',
+         author: '',
+         text: '',
+         image: '',
+         createdAt: {},
+      });
+   }
 
    render() {
       let { memories } = this.state;
@@ -79,11 +76,13 @@ export default class Memories extends Component {
             type: 'text',
             name: 'full_name',
             placeholder: 'Your Full Name (optional)',
+            value: this.state.author,
          },
          {
             type: 'text',
             name: 'title',
             placeholder: 'Memory Title',
+            value: this.state.title,
             required: true,
          },
       ];
@@ -92,7 +91,6 @@ export default class Memories extends Component {
 
       return (
          <div className="main">
-            {' '}
             <Wrapper wrap="style1" title="Memory Book" top text={text} />
             <ToggleBox action="show" text={toggleText}>
                <Form
@@ -100,6 +98,7 @@ export default class Memories extends Component {
                   method={'POST'}
                   inputs={inputs}
                   textarea
+                  textPlaceholer={'Your Memory'}
                   submit={'Share'}
                   onClick={this.onSubmit}
                   onChange={this.onChange}

@@ -7,6 +7,7 @@ const ListMemories = ({ memories }) =>
       let info = { author: memory.author, date: memory.createdAt };
       return (
          <Wrapper
+            key={index}
             wrap={index % 2 === 1 ? 'style1' : 'style2'}
             title={memory.title}
             image={memory.image}

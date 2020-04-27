@@ -3,22 +3,42 @@ const router = express.Router();
 
 const Memory = require('../models/Memory');
 
-router.get('/memories', (req, res, next) => {
-   Memory.find({}, (data) => {
-      res.json(data).catch(next);
-   });
+// Get all memories
+router.get('/memories', (req, res) => {
+	Memory.find()
+		.then((memories) => res.json(memories))
+		.catch((err) => res.json({ error: err.message }));
 });
 
-router.post('/memories', (req, res, next) => {
-   if (req.body.title) {
-      Memory.create(req.body)
-         .then((data) => res.json(data))
-         .catch(next);
-   } else {
-      res.json({
-         error: 'The input field is empty',
-      });
-   }
+// Create new memory
+router.post('/memories', (req, res) => {
+	const newMemory = new Memory(req.body);
+	newMemory.save((err, memory) => {
+		if (err) {
+			res.status(400).json({ success: false, error: err });
+		} else {
+			res.json({ success: true, id: memory.id });
+			res.redirect('/memories');
+		}
+	});
+});
+
+// Edit memory
+router.post('/memories/:id', (req, res) => {
+	const memory = new Memory(req.body);
+	Memory.findByIdAndReplace(req.params.id, memory, (err) => {
+		if (err) {
+			res.status(400).json({
+				success: false,
+				error: err,
+			});
+		} else {
+			res.json({
+				success: true,
+			});
+			res.redirect('/memories');
+		}
+	});
 });
 
 module.exports = router;

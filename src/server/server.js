@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
-// const cors = require('cors');
 
 const memoryRouter = require('./api/memory');
 const eventRouter = require('./api/event');
@@ -18,17 +18,16 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(cors());
+app.use(cors());
 // app.use('../assets', express.static('assets'));
 
 // Connect to MongoDB
 const db = require('./config/keys').MONGO_URI;
+mongoose.Promise = global.Promise;
 mongoose
    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
    .then(() => console.log(`Database connected successfully`))
    .catch((err) => console.log('Connection error: ', err));
-
-mongoose.Promise = global.Promise;
 
 // Routes
 app.use('/api/memory', memoryRouter);
@@ -45,22 +44,6 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
    res.render('App');
-});
-
-// app.get('/events', (req, res) => {
-//    Event.find({}, (events) => {
-//       res.render('Events', {
-//          events: events,
-//       });
-//    });
-// });
-//
-// app.get('/events/register', (req, res) => {
-//    res.render('Register', {});
-// });
-
-app.get('/contact', (req, res) => {
-   res.render('Contact', {});
 });
 
 app.listen(PORT, () => {

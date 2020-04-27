@@ -71,6 +71,7 @@ export default class Contact extends Component {
                      action="mailto: teamcaleb23@gmail.com"
                      inputs={inputs}
                      textarea
+                     textPlaceholer={'Your Message'}
                      submit={'Submit'}
                      onClick={this.onSubmit}
                   />

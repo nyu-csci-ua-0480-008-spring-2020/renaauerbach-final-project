@@ -95,3 +95,4 @@ An Example Memory:
 3. [Create React App](https://create-react-app.dev/)
 4. [Server side rendering with React and Express](https://medium.com/front-end-weekly/server-side-rendering-with-react-and-express-382591bfc77c)
 5. [How To Get Started with the MERN Stack](https://www.digitalocean.com/community/tutorials/getting-started-with-the-mern-stack#routes)
+6. [React Axios Tutorial](https://www.positronx.io/react-axios-tutorial-make-http-get-post-requests/)

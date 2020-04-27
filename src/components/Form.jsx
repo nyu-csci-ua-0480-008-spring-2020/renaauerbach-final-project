@@ -32,6 +32,7 @@ export default class Form extends Component {
                      className={input.className ? input.className : null}
                      type={input.type}
                      name={input.name}
+                     value={imput.value}
                      onChange={this.props.onChange}
                      placeholder={input.placeholder}
                      required={input.required ? true : false}
@@ -41,7 +42,7 @@ export default class Form extends Component {
                {this.props.textarea ? (
                   <textarea
                      name="msg"
-                     placeholder="Your Message"
+                     placeholder={this.props.textPlaceholder}
                      required
                   ></textarea>
                ) : null}

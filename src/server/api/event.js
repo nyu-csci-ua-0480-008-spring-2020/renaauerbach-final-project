@@ -3,22 +3,19 @@ const router = express.Router();
 
 const Event = require('../models/Event');
 
-router.get('/events', (req, res, next) => {
-   Event.find({}, 'title')
-      .then((data) => res.json(data))
-      .catch(next);
+// Get all events
+router.get('/events', (req, res) => {
+   Event.find()
+      .then((event) => res.json(event))
+      .catch((err) => res.json({ error: err.message }));
 });
 
-router.post('/events/register', (req, res, next) => {
-   if (req.body.email) {
-      Event.create(req.body)
-         .then((data) => res.json(data))
-         .catch(next);
-   } else {
-      res.json({
-         error: 'The input field is empty',
-      });
-   }
+// Register user for event
+router.post('/events/register', (req, res) => {
+   const user = { name: req.body.name, email: req.body.email };
+   const event = Event.findById(req.body.id);
+
+   event.registerUser(user);
 });
 
 module.exports = router;
