@@ -4,11 +4,6 @@ import Form from './Form';
 import Button from './Button';
 
 export default class Wrapper extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {};
-   }
-
    render() {
       const style = 'wrapper ' + this.props.wrap;
       return (
@@ -30,7 +25,13 @@ export default class Wrapper extends Component {
                         />
                      ) : null}
                   </header>
-                  {this.props.form ? <Form {...this.props.form} /> : null}
+                  {this.props.form ? (
+                     <Form {...this.props.form} />
+                  ) : (
+                     <div className={this.props.divClass}>
+                        {/* <ColumnWrapper /> */}
+                     </div>
+                  )}
                </div>
             ) : (
                <div className="inner">

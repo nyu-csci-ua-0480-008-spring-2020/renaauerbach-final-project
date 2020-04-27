@@ -21,6 +21,7 @@ export default class Form extends Component {
       return (
          <div id="form">
             <form
+               className={this.props.className}
                style={this.props.style}
                method={this.props.method}
                name="form"

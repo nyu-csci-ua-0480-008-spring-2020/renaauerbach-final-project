@@ -27,7 +27,7 @@ export default class ToggleBox extends Component {
                <div className="toggleContent">{children}</div>
             ) : (
                <div className="button" onClick={this.toggleBox}>
-                  Share Memory
+                  {this.props.button}
                </div>
             )}
          </div>

@@ -158,6 +158,11 @@ table {
 .toggle {
 	background-color: #000;
 	text-align: center;
+	position: relative;
+}
+
+.toggle-form > input {
+	width: 100% !important;
 }
 
 .toggle > .toggleContent {
@@ -3299,6 +3304,13 @@ footer .copyright .icons a {
 	justify-content: space-between;
 }
 
+/* FOR A SINGLE EVENT */
+.flex.null {
+	position: absolute;
+	margin: 0;
+	left: 43%;
+}
+
 .flex.flex-2,
 .flex.flex-3 {
 	-moz-align-items: stretch;
@@ -3327,33 +3339,10 @@ footer .copyright .icons a {
 	width: 66%;
 }
 
-@media screen and (max-width: 736px) {
-	.flex.flex-2 .col.col1,
-	.flex.flex-2 .col.col2 {
-		width: 100%;
-		margin-bottom: 2em;
-	}
-	.flex.flex-2 .col.col1 .image,
-	.flex.flex-2 .col.col2 .image {
-		max-width: 60%;
-		margin: 0 auto 2em auto;
-	}
-}
-
 .flex.flex-3 .col {
 	width: 28%;
 }
 
-@media screen and (max-width: 736px) {
-	.flex.flex-3 .col {
-		width: 100%;
-		margin-bottom: 2em;
-	}
-	.flex.flex-3 .col .image {
-		max-width: 60%;
-		margin: 0 auto 2em auto;
-	}
-}
 
 .flex.flex-4 .col {
 	width: 22%;
@@ -3390,6 +3379,24 @@ footer .copyright .icons a {
 }
 
 @media screen and (max-width: 736px) {
+	.flex.flex-2 .col.col1,
+	.flex.flex-2 .col.col2 {
+		width: 100%;
+		margin-bottom: 2em;
+	}
+	.flex.flex-2 .col.col1 .image,
+	.flex.flex-2 .col.col2 .image {
+		max-width: 60%;
+		margin: 0 auto 2em auto;
+	}
+	.flex.flex-3 .col {
+		width: 100%;
+		margin-bottom: 2em;
+	}
+	.flex.flex-3 .col .image {
+		max-width: 60%;
+		margin: 0 auto 2em auto;
+	}
 	.flex.flex-2 .col,
 	.flex.flex-3 .col,
 	.flex.flex-4 .col {

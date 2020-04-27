@@ -90,9 +90,8 @@ export default class Memories extends Component {
       return (
          <div className="main">
             <Wrapper wrap="style1" title="Memory Book" top text={text} />
-            <ToggleBox action="show" text={toggleText}>
+            <ToggleBox action="show" text={toggleText} button="Share Memory">
                <Form
-                  style={{ background: 'black' }}
                   method={'POST'}
                   inputs={inputs}
                   textarea
