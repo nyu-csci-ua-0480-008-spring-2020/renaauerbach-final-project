@@ -16,6 +16,7 @@
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
       "fetch": "^1.1.0",
+      "http-proxy-middleware": "^1.0.3",
       "jsonwebtoken": "^8.5.1",
       "mongoose": "^5.9.7",
       "prettier": "^2.0.4",
@@ -28,7 +29,7 @@
       "webpack": "^4.42.1"
    },
    "scripts": {
-      "client": "cd src && npm start ",
+      "client": "cd src && PORT=3000 npm start ",
       "server": "cd src/server && nodemon server.js",
       "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
       "webpack": "webpack",

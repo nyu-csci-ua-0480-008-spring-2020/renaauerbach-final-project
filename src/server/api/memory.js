@@ -4,14 +4,14 @@ const router = express.Router();
 const Memory = require('../models/Memory');
 
 // Get all memories
-router.get('/memories', (req, res) => {
+router.get('/', (req, res) => {
 	Memory.find()
 		.then((memories) => res.json(memories))
 		.catch((err) => res.json({ error: err.message }));
 });
 
 // Create new memory
-router.post('/memories', (req, res) => {
+router.post('/', (req, res) => {
 	const newMemory = new Memory(req.body);
 	newMemory.save((err, memory) => {
 		if (err) {
@@ -24,7 +24,7 @@ router.post('/memories', (req, res) => {
 });
 
 // Edit memory
-router.post('/memories/:id', (req, res) => {
+router.post('/:id', (req, res) => {
 	const memory = new Memory(req.body);
 	Memory.findByIdAndReplace(req.params.id, memory, (err) => {
 		if (err) {

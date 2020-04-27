@@ -9,7 +9,7 @@ const memoryRouter = require('./api/memory');
 const eventRouter = require('./api/event');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../../public')));
@@ -30,8 +30,8 @@ mongoose
    .catch((err) => console.log('Connection error: ', err));
 
 // Routes
-app.use('/api/memory', memoryRouter);
-app.use('/api/event', eventRouter);
+app.use('/api/memories', memoryRouter);
+app.use('/api/events', eventRouter);
 
 app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');

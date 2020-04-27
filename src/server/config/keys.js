@@ -3,10 +3,9 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
    MONGO_URI = 'mongodb://teamCalebUser:teamCalebPass@localhost/team_caleb';
 } else {
    // If not in PRODUCTION mode
-   MONGO_URI = 'mongodb://127.0.0.1:27017/team_caleb';
+   MONGO_URI = 'mongodb://localhost/team_caleb';
 }
 
 module.exports = {
    MONGO_URI: MONGO_URI,
-   secretOrKey: 'secret',
 };

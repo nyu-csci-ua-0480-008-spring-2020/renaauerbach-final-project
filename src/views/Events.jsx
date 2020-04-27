@@ -12,7 +12,7 @@ export default class Events extends Component {
 
    componentDidMount() {
       axios
-         .get('http://localhost:4000/api/events')
+         .get('http://localhost:3001/api/events')
          .then((res) => {
             this.setState({ events: res.data });
          })
@@ -27,7 +27,6 @@ export default class Events extends Component {
 
       return (
          <div className="main">
-            {' '}
             <Wrapper
                wrap="style1"
                title="Upcoming Events"
@@ -35,12 +34,6 @@ export default class Events extends Component {
                top
                text={text}
             />
-            {events.length === 0 ? (
-               <p className="no-data-msg">
-                  We don't have any events planned at the momemt, but we will
-                  let you know when we do!
-               </p>
-            ) : null}
             <ListEvents events={events} />
          </div>
       );

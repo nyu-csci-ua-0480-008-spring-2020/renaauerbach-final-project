@@ -14,7 +14,6 @@ export default class Memories extends Component {
          title: '',
          author: '',
          text: '',
-         image: '',
          createdAt: {},
       };
 
@@ -24,11 +23,12 @@ export default class Memories extends Component {
 
    componentDidMount() {
       axios
-         .get('http://localhost:4000/api/memories')
+         .get('http://localhost:3001/api/memories')
          .then((res) => {
             this.setState({ memories: res.data });
+            console.log(res.data);
          })
-         .catch(function (err) {
+         .catch((err) => {
             console.log(err);
          });
    }
@@ -44,25 +44,23 @@ export default class Memories extends Component {
          title: this.state.title,
          author: this.state.author,
          text: this.state.text,
-         image: this.state.image,
          createdAt: new Date(),
       };
 
       axios
-         .post('http://localhost:3000/api/memories', memoryData)
+         .post('http://localhost:3001/api/memories', memoryData)
          .then((res) => {
             this.props.history.push('/');
             console.log(res.data);
          })
          .catch((err) => {
-            console.log('Error in Memories');
+            console.log('Error in Memories:', err);
          });
 
       this.setState({
          title: '',
          author: '',
          text: '',
-         image: '',
          createdAt: {},
       });
    }

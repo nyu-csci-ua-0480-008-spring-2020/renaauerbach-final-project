@@ -32,7 +32,7 @@ export default class Form extends Component {
                      className={input.className ? input.className : null}
                      type={input.type}
                      name={input.name}
-                     value={imput.value}
+                     value={input.value}
                      onChange={this.props.onChange}
                      placeholder={input.placeholder}
                      required={input.required ? true : false}
