@@ -9,14 +9,9 @@ export default class Header extends Component {
                <img src={logo} alt="logo" />
                <p className="memorium">In Memory of Caleb Penn Maeir</p>
             </div>
-            <a
-               href="#menu"
-               className="menu"
-               target="_blank"
-               onClick={() => this.props.toggleNav()}
-            >
+            <li className="menu" onClick={() => this.props.toggleNav()}>
                Menu
-            </a>
+            </li>
          </header>
       );
    }

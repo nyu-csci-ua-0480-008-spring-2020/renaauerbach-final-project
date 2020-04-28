@@ -88,15 +88,12 @@ An Example Message:
 
 ## Research Topics
 
-* (3 points) Grunt build tool
-    * I'm going to be using Grunt for task automation in conjunction with the following:
-	* (2 points) ESLint
-	    * I will have a configuration file in my repository
-	    * It will automatically run on entire codebase outside of node_modules on file change
-	    * I will link it to relevant lines in build configuration and lint configuration
-	    * I will show screen capture / animated gif of running on save
-* (5 points) ReactJS
+* (6-8 points) ReactJS
     * I'm going to use ReactJS as the frontend framework
+	* I will create completely new views and components
+	* I will learn how to pass data from the database into components
+
+* Note: This was a MASSIVE undertaking. I have never configured a React frontend with any backend before. It took a TON of research and time. 
 
 ## [Link to Initial Main Project File](app.js) 
 
@@ -107,4 +104,6 @@ An Example Message:
 3. [Create React App](https://create-react-app.dev/)
 4. [Server side rendering with React and Express](https://medium.com/front-end-weekly/server-side-rendering-with-react-and-express-382591bfc77c)
 5. [How To Get Started with the MERN Stack](https://www.digitalocean.com/community/tutorials/getting-started-with-the-mern-stack#routes)
-6. [React Axios Tutorial](https://www.positronx.io/react-axios-tutorial-make-http-get-post-requests/)
+6. [The MERN Stack Tutorial](https://codingthesmartway.com/the-mern-stack-tutorial-building-a-react-crud-application-from-start-to-finish-part-1/)
+7. [An Easy Way to Get Started with the MERN Stack](https://alligator.io/react/mern-stack-intro/)
+8. [React Axios Tutorial](https://www.positronx.io/react-axios-tutorial-make-http-get-post-requests/)

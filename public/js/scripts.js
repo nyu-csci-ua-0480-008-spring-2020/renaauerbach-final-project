@@ -1,18 +1,18 @@
 //Home Page Banner Slide Show
 
 let images = [
-	'../img/tc1.jpg',
-	'../img/tc2.jpg',
-	'../img/tc3.jpg',
-	'../img/tc4.jpg',
-	'../img/tc5.jpg',
-	'../img/tc6.jpg',
-	'../img/tc7.jpg',
-	'../img/tc8.jpg',
+	'..src/assets/img/tc1.jpg',
+	'..src/assets/img/tc2.jpg',
+	'..src/assets/img/tc3.jpg',
+	'..src/assets/img/tc4.jpg',
+	'..src/assets/img/tc5.jpg',
+	'..src/assets/img/tc6.jpg',
+	'..src/assets/img/tc7.jpg',
+	'..src/assets/img/tc8.jpg',
 ];
 
 let secs = 4;
-images.forEach(function (img) {
+images.forEach((img) => {
 	new Image().src = img;
 });
 

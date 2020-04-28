@@ -8,7 +8,7 @@
 	});
 
 	$(function () {
-		var $window = $(window),
+		let $window = $(window),
 			$body = $('body'),
 			$header = $('#header'),
 			$banner = $('#banner');
@@ -34,20 +34,17 @@
 		});
 
 		// Menu
-		$('#menu').click((e) => {
-			e.preventDefault();
-
-			e.append('<a href="#menu" target="_blank" class="close"></a>')
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-				});
-		});
+		$('#menu')
+			.append('<a href="#menu" target="_blank" class="close"></a>')
+			.appendTo($body)
+			.panel({
+				delay: 500,
+				hideOnClick: true,
+				hideOnSwipe: true,
+				resetScroll: true,
+				resetForms: true,
+				side: 'right',
+			});
 
 		// Header
 		if (skel.vars.IEVersion < 9) $header.removeClass('alt');
@@ -73,13 +70,13 @@
 		}
 
 		// Banner
-		var $banner = $('#banner');
+		let $banner = $('#banner');
 
 		if ($banner.length > 0) {
 			// IE fix
 			if (skel.vars.IEVersion < 12) {
 				$window.on('resize', () => {
-					var wh = $window.height() * 0.6,
+					let wh = $window.height() * 0.6,
 						bh = $banner.height();
 
 					$banner.css('height', 'auto');
