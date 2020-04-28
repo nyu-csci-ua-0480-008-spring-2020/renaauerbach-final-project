@@ -25,22 +25,19 @@ router.post('/', (req, res) => {
 	});
 });
 
-// Edit memory
-router.post('/:id', (req, res) => {
-	const memory = new Memory(req.body);
-	Memory.findByIdAndReplace(req.params.id, memory, (err) => {
-		if (err) {
+// Delete a memory
+router.delete('/:id', (req, res) => {
+	Memory.findByIdAndRemove({ _id: req.params.id, useFindAndModify: false })
+		.then((data) => {
+			res.json({ success: true });
+			console.log('Memory deleted successfully!');
+		})
+		.catch((err) => {
 			res.status(400).json({
 				success: false,
 				error: err,
 			});
-		} else {
-			res.json({
-				success: true,
-			});
-			console.log('Memory edited successfully!');
-		}
-	});
+		});
 });
 
 module.exports = router;

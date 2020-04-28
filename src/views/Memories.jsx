@@ -19,6 +19,7 @@ export default class Memories extends Component {
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleDelete = this.handleDelete.bind(this);
    }
 
    componentDidMount() {
@@ -52,6 +53,27 @@ export default class Memories extends Component {
          .then((res) => {
             this.setState((prevState) => ({
                memories: [memory, ...prevState.memories],
+               title: '',
+               author: '',
+               text: '',
+               createdAt: {},
+            }));
+            this.componentDidMount();
+            console.log(res.data);
+         })
+         .catch((err) => {
+            console.log('Error in Memories:', err);
+         });
+   }
+
+   handleDelete(id) {
+      // e.preventDefault();
+      console.log('id', id);
+      axios
+         .delete(`http://localhost:3001/api/memories/${id}`)
+         .then((res) => {
+            this.setState((prevState) => ({
+               memories: [],
                title: '',
                author: '',
                text: '',
@@ -101,7 +123,10 @@ export default class Memories extends Component {
                   onChange={this.handleChange}
                />
             </ToggleBox>
-            <ListMemories memories={memories} />
+            <ListMemories
+               memories={memories}
+               handleDelete={this.handleDelete}
+            />
          </div>
       );
    }
