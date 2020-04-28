@@ -8,11 +8,9 @@ const ListMemories = ({ memories }) => {
             <section className="style1 memories">
                <div className="inner_a post">
                   <header className="align-center">
-                     <h4 style={{ color: '#D7FC51' }}>{memory.title}</h4>
-                     <span className="span author">
-                        {'By ' + memory.author}
-                     </span>
-                     <span className="span date">
+                     <h4 className="data title">{memory.title}</h4>
+                     <span className="details">{'By ' + memory.author}</span>
+                     <span className="details">
                         {'Date: ' +
                            date.toDateString().split(' ').slice(1).join(' ')}
                      </span>

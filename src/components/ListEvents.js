@@ -7,19 +7,20 @@ export default class ListEvents extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         events: this.props.events,
          name: '',
          email: '',
       };
 
-      this.onChange = this.onChange.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
    }
 
-   onChange(e) {
+   handleChange(e) {
       this.setState({ [e.target.name]: e.target.value });
    }
 
-   onSubmit(e) {
+   handleSubmit(e) {
       e.preventDefault();
 
       const user = {
@@ -28,9 +29,8 @@ export default class ListEvents extends Component {
       };
 
       axios
-         .post('http://localhost:3001/api/events', user)
+         .put('http://localhost:3001/api/events/register', user)
          .then((res) => {
-            this.props.history.push('/');
             console.log(res.data);
          })
          .catch((err) => {
@@ -47,6 +47,7 @@ export default class ListEvents extends Component {
       const form = {
          inputs: [
             {
+               key: 1,
                type: 'text',
                name: 'name',
                placeholder: 'Your Full Name',
@@ -54,6 +55,7 @@ export default class ListEvents extends Component {
                required: true,
             },
             {
+               key: 2,
                type: 'email',
                name: 'email',
                placeholder: 'Your Email',
@@ -61,15 +63,20 @@ export default class ListEvents extends Component {
                required: true,
             },
          ],
+         method: 'PUT',
          submit: 'Submit',
-         onSubmit: this.onSubmit,
-         onChange: this.onChange,
+         onSubmit: this.handleSubmit,
+         onChange: this.handleChange,
       };
 
       let events = this.props.events;
       return events.length > 0 ? (
          events.map((event, index) => {
-            console.log(event);
+            let date = new Date(event.date)
+               .toDateString()
+               .split(' ')
+               .slice(1)
+               .join(' ');
             const columns = [
                {
                   class: 'align-center',
@@ -83,7 +90,7 @@ export default class ListEvents extends Component {
                      {
                         details: 'Where: ' + event.location,
                      },
-                     { details: 'When: ' + event.date },
+                     { details: 'When: ' + date },
                   ],
                   toggle: true,
                   toggleButton: 'Register',
@@ -91,11 +98,15 @@ export default class ListEvents extends Component {
             ];
             let flexClass = events.length > 1 ? 'flex-' + events.length : null;
             return (
-               <ColumnWrapper
-                  flexClass={flexClass}
-                  columns={columns}
-                  form={form}
-               />
+               <React.Fragment>
+                  <ColumnWrapper
+                     key={index}
+                     flexClass={flexClass}
+                     columns={columns}
+                     form={form}
+                  />
+                  <div className="missing-block"></div>
+               </React.Fragment>
             );
          })
       ) : (

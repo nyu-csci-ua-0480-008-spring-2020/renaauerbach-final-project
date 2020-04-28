@@ -7,7 +7,9 @@ import ListEvents from '../components/ListEvents';
 export default class Events extends Component {
    constructor(props) {
       super(props);
-      this.state = { events: [] };
+      this.state = {
+         events: [],
+      };
    }
 
    componentDidMount() {
@@ -35,7 +37,7 @@ export default class Events extends Component {
                top
                text={text}
             />
-            <ListEvents events={events} />
+            <ListEvents events={events} key={1} />
          </div>
       );
    }

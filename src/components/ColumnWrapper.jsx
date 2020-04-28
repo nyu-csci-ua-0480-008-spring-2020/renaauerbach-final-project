@@ -15,16 +15,20 @@ const ColumnWrapper = ({ columns, flexClass, form }) => {
                         <img src={col.img.src} alt={col.img.alt} />
                      </div>
                   ) : null}
-                  <h3>{col.title}</h3>
-                  <p>{col.text}</p>
-                  {col.span.forEach((info) => {
-                     return <span>info.details</span>;
+                  <h3 className="data title">{col.title}</h3>
+                  {col.span.map((info, i) => {
+                     return (
+                        <span className="details" key={i}>
+                           {info.details}
+                        </span>
+                     );
                   })}
+                  <p>{col.text}</p>
                   {col.toggle ? (
                      <ToggleBox action="show" button={col.toggleButton}>
                         <Form
                            className="toggle-form"
-                           method="POST"
+                           method={form.method}
                            inputs={form.inputs}
                            submit={form.submit}
                            onClick={form.onSubmit}
