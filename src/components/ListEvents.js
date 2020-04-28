@@ -22,6 +22,7 @@ export default class ListEvents extends Component {
 
    handleSubmit(e) {
       e.preventDefault();
+      let id = e.target.key;
 
       const user = {
          name: this.state.name,
@@ -29,11 +30,11 @@ export default class ListEvents extends Component {
       };
 
       axios
-         .put('http://localhost:3001/api/events/register', user)
-         .then((res) => {
+         .post(`http://localhost:3001/api/events/${id}/register`, user)
+         .then(res => {
             console.log(res.data);
          })
-         .catch((err) => {
+         .catch(err => {
             console.log('Error in ListEvents:', err);
          });
 
@@ -47,7 +48,6 @@ export default class ListEvents extends Component {
       const form = {
          inputs: [
             {
-               key: 1,
                type: 'text',
                name: 'name',
                placeholder: 'Your Full Name',
@@ -55,7 +55,6 @@ export default class ListEvents extends Component {
                required: true,
             },
             {
-               key: 2,
                type: 'email',
                name: 'email',
                placeholder: 'Your Email',
@@ -98,15 +97,12 @@ export default class ListEvents extends Component {
             ];
             let flexClass = events.length > 1 ? 'flex-' + events.length : null;
             return (
-               <React.Fragment>
-                  <ColumnWrapper
-                     key={index}
-                     flexClass={flexClass}
-                     columns={columns}
-                     form={form}
-                  />
-                  <div className="missing-block"></div>
-               </React.Fragment>
+               <ColumnWrapper
+                  event={event}
+                  flexClass={flexClass}
+                  columns={columns}
+                  form={form}
+               />
             );
          })
       ) : (

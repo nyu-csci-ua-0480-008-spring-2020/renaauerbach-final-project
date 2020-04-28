@@ -88,7 +88,7 @@ An Example Message:
 
 ## Research Topics
 
-* (6-8 points) ReactJS
+* (6 points) ReactJS
     * I'm going to use ReactJS as the frontend framework
 	* I will create completely new views and components
 	* I will learn how to pass data from the database into components

@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
 	skel.breakpoints({
 		xlarge: '(max-width: 1680px)',
 		large: '(max-width: 1280px)',
@@ -7,7 +7,7 @@
 		xsmall: '(max-width: 480px)',
 	});
 
-	$(function () {
+	$(function() {
 		let $window = $(window),
 			$body = $('body'),
 			$header = $('#header'),
@@ -70,8 +70,6 @@
 		}
 
 		// Banner
-		let $banner = $('#banner');
-
 		if ($banner.length > 0) {
 			// IE fix
 			if (skel.vars.IEVersion < 12) {

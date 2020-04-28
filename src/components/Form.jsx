@@ -8,6 +8,7 @@ export default class Form extends Component {
    }
 
    render() {
+      console.log('FORM PROPS', this.props);
       return (
          <div id="form">
             <form

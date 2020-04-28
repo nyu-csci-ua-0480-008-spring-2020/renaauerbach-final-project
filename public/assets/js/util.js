@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
 	$.fn.navList = () => {
 		let $this = $(this);
 		($a = $this.find('a')), (b = []);
@@ -32,22 +32,25 @@
 		return b.join('');
 	};
 
-	$.fn.panel = (userConfig) => {
-		// Check for element
-		if (this.length == 0) return $this;
-
-		if (this.length > 1) {
-			for (let i = 0; i < this.length; i++) $(this[i]).panel(userConfig);
-
-			return $this;
-		}
-
+	$.fn.panel = userConfig => {
 		// Variables
 		let $this = $(this),
 			$body = $('body'),
 			$window = $(window),
 			id = $this.attr('id'),
 			config;
+
+		// Check for element
+		if (this.length == 0) {
+			return $this;
+		}
+
+		if (this.length > 1) {
+			for (let i = 0; i < this.length; i++) {
+				$(this[i]).panel(userConfig);
+			}
+			return $this;
+		}
 
 		// Config
 		config = $.extend(
@@ -90,7 +93,7 @@
 		// Panel
 
 		// Methods
-		$this._hide = (event) => {
+		$this._hide = event => {
 			// Already hidden? Bail
 			if (!config.target.hasClass(config.visibleClass)) {
 				return;
@@ -129,7 +132,7 @@
 		if (config.hideOnClick) {
 			$this.find('a').css('-webkit-tap-highlight-color', 'rgba(0,0,0,0)');
 
-			$this.on('click', 'a', (event) => {
+			$this.on('click', 'a', event => {
 				let $a = $(this),
 					href = $a.attr('href'),
 					target = $a.attr('target');
@@ -155,12 +158,12 @@
 		}
 
 		// Event: Touch stuff
-		$this.on('touchstart', (event) => {
+		$this.on('touchstart', event => {
 			$this.touchPosX = event.originalEvent.touches[0].pageX;
 			$this.touchPosY = event.originalEvent.touches[0].pageY;
 		});
 
-		$this.on('touchmove', (event) => {
+		$this.on('touchmove', event => {
 			if ($this.touchPosX === null || $this.touchPosY === null) return;
 
 			let diffX = $this.touchPosX - event.originalEvent.touches[0].pageX,
@@ -223,12 +226,12 @@
 		});
 
 		// Event: Prevent certain events inside the panel from bubbling
-		$this.on('click touchend touchstart touchmove', (event) => {
+		$this.on('click touchend touchstart touchmove', event => {
 			event.stopPropagation();
 		});
 
 		// Event: Hide panel if a child anchor tag pointing to its ID is clicked
-		$this.on('click', 'a[href="#' + id + '"]', (event) => {
+		$this.on('click', 'a[href="#' + id + '"]', event => {
 			event.preventDefault();
 			event.stopPropagation();
 
@@ -238,12 +241,12 @@
 		// Body
 
 		// Event: Hide panel on body click/tap
-		$body.on('click touchend', (event) => {
+		$body.on('click touchend', event => {
 			$this._hide(event);
 		});
 
 		// Event: Toggle
-		$body.on('click', 'a[href="#' + id + '"]', (event) => {
+		$body.on('click', 'a[href="#' + id + '"]', event => {
 			event.preventDefault();
 			event.stopPropagation();
 
@@ -254,7 +257,7 @@
 
 		// Event: Hide on ESC
 		if (config.hideOnEscape)
-			$window.on('keydown', (event) => {
+			$window.on('keydown', event => {
 				if (event.keyCode == 27) $this._hide(event);
 			});
 
@@ -334,7 +337,7 @@
 			if (i.val() == '') i.hide();
 			else x.hide();
 
-			i.on('blur', (event) => {
+			i.on('blur', event => {
 				event.preventDefault();
 
 				let x = i
@@ -347,7 +350,7 @@
 				}
 			});
 
-			x.on('focus', (event) => {
+			x.on('focus', event => {
 				event.preventDefault();
 
 				let i = x
@@ -361,7 +364,7 @@
 				x.hide();
 
 				i.show().focus();
-			}).on('keypress', (event) => {
+			}).on('keypress', event => {
 				event.preventDefault();
 				x.val('');
 			});
@@ -372,7 +375,7 @@
 			.on('submit', () => {
 				$this
 					.find('input[type=text],input[type=password],textarea')
-					.each((event) => {
+					.each(event => {
 						let i = $(this);
 
 						if (i.attr('name').match(/-polyfill-field$/))
@@ -384,7 +387,7 @@
 						}
 					});
 			})
-			.on('reset', (event) => {
+			.on('reset', event => {
 				event.preventDefault();
 
 				$this.find('select').val($('option:first').val());

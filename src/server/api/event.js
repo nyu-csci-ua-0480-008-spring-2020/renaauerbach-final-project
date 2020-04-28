@@ -6,12 +6,12 @@ const Event = require('../models/Event');
 // Get all events
 router.get('/', (req, res) => {
 	Event.find()
-		.then((event) => res.json(event))
-		.catch((err) => res.json({ error: err.message }));
+		.then(event => res.json(event))
+		.catch(err => res.json({ error: err.message }));
 });
 
 // Register user for event
-router.put('/register', (req, res) => {
+router.put('/:id/register', (req, res) => {
 	console.log('HELLO');
 	const user = { name: req.body.name, email: req.body.email };
 	console.log('user:', user);
