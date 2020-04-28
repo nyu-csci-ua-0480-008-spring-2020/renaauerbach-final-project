@@ -4,18 +4,8 @@ export default class Form extends Component {
    constructor(props) {
       super(props);
       this.props = this.props.form;
-      this.state = {
-         submitted: false,
-      };
-
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = {};
    }
-
-   handleSubmit = () => {
-      this.setState({
-         submitted: true,
-      });
-   };
 
    render() {
       return (
@@ -26,6 +16,7 @@ export default class Form extends Component {
                method={this.props.method}
                name="form"
                action={this.props.action}
+               onSubmit={this.props.onSubmit}
             >
                {this.props.inputs.map((input, index) => [
                   <input
@@ -44,6 +35,8 @@ export default class Form extends Component {
                   <textarea
                      name="text"
                      placeholder="Enter your message here"
+                     value={this.props.textValue}
+                     onChange={this.props.onChange}
                      required
                   ></textarea>
                ) : null}
@@ -52,7 +45,6 @@ export default class Form extends Component {
                   className="submit"
                   type="submit"
                   name="submit"
-                  onClick={this.props.onClick}
                   value={this.props.submit}
                />
             </form>

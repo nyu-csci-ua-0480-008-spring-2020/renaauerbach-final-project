@@ -25,13 +25,7 @@ export default class Wrapper extends Component {
                         />
                      ) : null}
                   </header>
-                  {this.props.form ? (
-                     <Form {...this.props.form} />
-                  ) : (
-                     <div className={this.props.divClass}>
-                        {/* <ColumnWrapper /> */}
-                     </div>
-                  )}
+                  {this.props.form ? <Form {...this.props.form} /> : null}
                </div>
             ) : (
                <div className="inner">

@@ -60,6 +60,5 @@
       "concurrently": "^5.1.0",
       "nodemon": "^2.0.2",
       "webpack-cli": "^3.3.11"
-   },
-   "proxy": "http://127.0.0.1:3001/"
+   }
 }

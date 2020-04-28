@@ -17,8 +17,8 @@ export default class Memories extends Component {
          createdAt: {},
       };
 
-      this.onChange = this.onChange.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
    }
 
    componentDidMount() {
@@ -33,11 +33,11 @@ export default class Memories extends Component {
          });
    }
 
-   onChange(e) {
+   handleChange(e) {
       this.setState({ [e.target.name]: e.target.value });
    }
 
-   onSubmit(e) {
+   handleSubmit(e) {
       e.preventDefault();
 
       const memory = {
@@ -50,19 +50,19 @@ export default class Memories extends Component {
       axios
          .post('http://localhost:3001/api/memories', memory)
          .then((res) => {
-            this.props.history.push('/');
+            this.setState((prevState) => ({
+               memories: [memory, ...prevState.memories],
+               title: '',
+               author: '',
+               text: '',
+               createdAt: {},
+            }));
+            this.componentDidMount();
             console.log(res.data);
          })
          .catch((err) => {
             console.log('Error in Memories:', err);
          });
-
-      this.setState({
-         title: '',
-         author: '',
-         text: '',
-         createdAt: {},
-      });
    }
 
    render() {
@@ -90,14 +90,15 @@ export default class Memories extends Component {
       return (
          <div className="main">
             <Wrapper wrap="style1" title="Memory Book" top text={text} />
-            <ToggleBox action="show" text={toggleText} button="Share Memory">
+            <ToggleBox action="show" text={toggleText} button="Share A Memory">
                <Form
                   method={'POST'}
                   inputs={inputs}
                   textarea
+                  textValue={this.state.text}
                   submit={'Share'}
-                  onClick={this.onSubmit}
-                  onChange={this.onChange}
+                  onSubmit={this.handleSubmit}
+                  onChange={this.handleChange}
                />
             </ToggleBox>
             <ListMemories memories={memories} />

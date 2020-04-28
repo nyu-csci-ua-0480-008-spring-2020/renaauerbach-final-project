@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ToggleBox from '../components/ToggleBox';
 import Form from '../components/Form';
 
 const ColumnWrapper = ({ columns, flexClass, form }) => {
-   let flex = flexClass !== null ? 'flex ' + flexClass : null;
    return (
       <div className={'flex ' + flexClass}>
          {columns.map((col, index) => {

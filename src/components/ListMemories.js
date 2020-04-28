@@ -1,20 +1,29 @@
 import React from 'react';
 
-import Wrapper from '../components/Wrapper';
-
 const ListMemories = ({ memories }) => {
    return memories.length > 0 ? (
       memories.map((memory, index) => {
-         let info = { author: memory.author, date: memory.createdAt };
+         let date = new Date(memory.createdAt);
          return (
-            <Wrapper
-               key={index}
-               wrap={index % 2 === 1 ? 'style1' : 'style2'}
-               title={memory.title}
-               image={memory.image}
-               text={memory.text}
-               info={info}
-            />
+            <section className="style1 memories">
+               <div className="inner_a post">
+                  <header className="align-center">
+                     <h4 style={{ color: '#D7FC51' }}>{memory.title}</h4>
+                     <span className="span author">
+                        {'By ' + memory.author}
+                     </span>
+                     <span className="span date">
+                        {'Date: ' +
+                           date.toDateString().split(' ').slice(1).join(' ')}
+                     </span>
+                     {/* <Button */}
+                     {/*    link={this.props.button.link} */}
+                     {/*    text={this.props.button.text} */}
+                     {/* /> */}
+                  </header>
+                  <p>{memory.text}</p>
+               </div>
+            </section>
          );
       })
    ) : (
