@@ -36,7 +36,7 @@ p.no-data-msg, p.push {
 	background-color: #000;
 	font-size: 16px;
 	text-align: center;
-	margin-bottom: 0;
+	margin-bottom: 8vh;
 }
 
 div.missing-block {
@@ -47,7 +47,6 @@ div.missing-block {
 div.main {
 	background-color: #000;
 	padding-bottom: 85px;
-	display: inline-block;
 	position: relative;
 }
 

@@ -16,10 +16,26 @@ export default class Contact extends Component {
          createdAt: {},
       };
 
-      this.onSubmit = this.onSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
    }
 
-   onSubmit(e) {
+   componentDidMount() {
+      axios
+         .get('http://localhost:3001/api/contact')
+         .then((res) => {
+            console.log('Message: ', res.data);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   }
+
+   handleChange(e) {
+      this.setState({ [e.target.name]: e.target.value });
+   }
+
+   handleSubmit(e) {
       e.preventDefault();
 
       const msg = {
@@ -37,21 +53,18 @@ export default class Contact extends Component {
       axios
          .post('http://localhost:3001/api/contact', msg)
          .then((res) => {
-            this.props.history.push('/');
+            this.setState({
+               name: '',
+               email: '',
+               subject: '',
+               text: '',
+               createdAt: {},
+            });
             console.log(res.data);
          })
          .catch((err) => {
-            console.log('Error in Memories:', err);
+            console.log('Error in Contact:', err);
          });
-
-      this.setState({
-         sent: !this.state.sent,
-         name: '',
-         email: '',
-         subject: '',
-         text: '',
-         createdAt: {},
-      });
    }
 
    render() {
@@ -93,22 +106,23 @@ export default class Contact extends Component {
             {!this.state.sent ? (
                <React.Fragment>
                   <Form
-                     style={{ background: 'black' }}
-                     method={'POST'}
-                     action=""
+                     method="POST"
                      inputs={inputs}
                      textarea
-                     submit={'Send'}
-                     onClick={this.onSubmit}
+                     submit="Send"
+                     onChange={this.handleChange}
+                     onSubmit={this.handleSubmit}
                   />
                   <p className="push">
                      *You can expect a response within 24 - 48 hours
                   </p>
                </React.Fragment>
             ) : (
-               <p className="no-data-msg">
-                  You're message has been sent! Thank you!
-               </p>
+               <div className="missing-block">
+                  <p className="no-data-msg">
+                     You're message has been sent! Thank you!
+                  </p>
+               </div>
             )}
          </div>
       );
