@@ -92,11 +92,11 @@ export default class Memories extends Component {
             <Wrapper wrap="style1" title="Memory Book" top text={text} />
             <ToggleBox action="show" text={toggleText} button="Share A Memory">
                <Form
-                  method={'POST'}
+                  method="POST"
                   inputs={inputs}
                   textarea
                   textValue={this.state.text}
-                  submit={'Share'}
+                  submit="Share"
                   onSubmit={this.handleSubmit}
                   onChange={this.handleChange}
                />

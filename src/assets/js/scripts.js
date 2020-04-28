@@ -1,17 +1,18 @@
 //Home Page Banner Slide Show
 
 let images = [
-	".../img/tc1.jpg",
-	".../img/tc2.jpg",
-	".../img/tc3.jpg",
-	".../img/tc4.jpg",
-	".../img/tc5.jpg",
-	".../img/tc6.jpg",
-	".../img/tc7.jpg",
-	".../img/tc8.jpg"
+	'../img/tc1.jpg',
+	'../img/tc2.jpg',
+	'../img/tc3.jpg',
+	'../img/tc4.jpg',
+	'../img/tc5.jpg',
+	'../img/tc6.jpg',
+	'../img/tc7.jpg',
+	'../img/tc8.jpg',
 ];
+
 let secs = 4;
-images.forEach(function(img) {
+images.forEach(function (img) {
 	new Image().src = img;
 });
 
@@ -20,9 +21,9 @@ function backgroundSeq() {
 	let k = 0;
 	for (let i = 0; i < images.length; i++) {
 		setTimeout(() => {
-			document.getElementById("banner").style.background =
-				"url(" + images[k] + ") no-repeat center center";
-			document.getElementById("banner").style.backgroundSize = "cover";
+			document.getElementById('banner').style.background =
+				'url(' + images[k] + ') no-repeat center center';
+			document.getElementById('banner').style.backgroundSize = 'cover';
 			// document.getElementById('banner').width = "960";
 			// 			document.getElementById('banner').height = "720";
 

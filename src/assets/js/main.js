@@ -7,13 +7,13 @@
 		xsmall: '(max-width: 480px)',
 	});
 
-	$(() => {
+	$(function () {
 		var $window = $(window),
 			$body = $('body'),
 			$header = $('#header'),
 			$banner = $('#banner');
 
-		// Disable animations/transitions until the page has loaded.
+		// Disable animations/transitions until the page has loaded
 		$body.addClass('is-loading');
 
 		$window.on('load', () => {
@@ -22,10 +22,10 @@
 			}, 100);
 		});
 
-		// Fix: Placeholder polyfill.
+		// Fix: Placeholder polyfill
 		$('form').placeholder();
 
-		// Prioritize "important" elements on medium.
+		// Prioritize "important" elements on medium
 		skel.on('+medium -medium', () => {
 			$.prioritize(
 				'.important\\28 medium\\29',
@@ -33,20 +33,23 @@
 			);
 		});
 
-		// Menu.
-		$('#menu')
-			.append('<a href="#menu" class="close"></a>')
-			.appendTo($body)
-			.panel({
-				delay: 500,
-				hideOnClick: true,
-				hideOnSwipe: true,
-				resetScroll: true,
-				resetForms: true,
-				side: 'right',
-			});
+		// Menu
+		$('#menu').click((e) => {
+			e.preventDefault();
 
-		// Header.
+			e.append('<a href="#menu" target="_blank" class="close"></a>')
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'right',
+				});
+		});
+
+		// Header
 		if (skel.vars.IEVersion < 9) $header.removeClass('alt');
 
 		if ($banner.length > 0 && $header.hasClass('alt')) {
@@ -69,11 +72,11 @@
 			});
 		}
 
-		// Banner.
+		// Banner
 		var $banner = $('#banner');
 
 		if ($banner.length > 0) {
-			// IE fix.
+			// IE fix
 			if (skel.vars.IEVersion < 12) {
 				$window.on('resize', () => {
 					var wh = $window.height() * 0.6,
@@ -90,57 +93,9 @@
 					$window.triggerHandler('resize');
 				});
 			}
-
-			// Video check.
-			var video = $banner.data('video');
-
-			if (video)
-				$window.on('load.banner', () => {
-					// Disable banner load event (so it doesn't fire again).
-					$window.off('load.banner');
-
-					// Append video if supported.
-					if (
-						!skel.vars.mobile &&
-						!skel.breakpoint('large').active &&
-						skel.vars.IEVersion > 9
-					)
-						$banner.append(
-							'<video autoplay loop><source src="' +
-								video +
-								'.mp4" type="video/mp4" /><source src="' +
-								video +
-								'.webm" type="video/webm" /></video>'
-						);
-				});
-
-			// More button.
-			$banner.find('.more').addClass('scrolly');
 		}
 
-		// Tabs.
-		$('.flex-tabs').each(() => {
-			var t = jQuery(this),
-				tab = t.find('.tab-list li a'),
-				tabs = t.find('.tab');
-
-			tab.click((e) => {
-				var x = jQuery(this),
-					y = x.data('tab');
-
-				// Set Classes on Tabs
-				tab.removeClass('active');
-				x.addClass('active');
-
-				// Show/Hide Tab Content
-				tabs.removeClass('active');
-				t.find('.' + y).addClass('active');
-
-				e.preventDefault();
-			});
-		});
-
-		// Scrolly.
+		// Scrolly
 		$('.scrolly').scrolly({
 			offset: () => {
 				return $header.height() - 2;

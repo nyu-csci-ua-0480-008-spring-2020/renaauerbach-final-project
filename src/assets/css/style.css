@@ -1660,12 +1660,12 @@ body.subpage {
 	color: white;
 }
 
-#header>a[href="#menu"] {
+#header>a.menu {
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
 }
 
-#header>a[href="#menu"]:before {
+#header>a.menu:before {
 	content: "";
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -1675,11 +1675,11 @@ body.subpage {
 	text-transform: none !important;
 }
 
-#header>a[href="#menu"]:before {
+#header>a.menu:before {
 	margin: 0 0.5em 0 0;
 }
 
-#header>a+a[href="#menu"]:last-child {
+#header>a+a.menu:last-child {
 	border-left: solid 1px rgba(255, 255, 255, 0.25);
 	padding-left: 1.25em;
 	margin-left: 0.5em;
@@ -3504,7 +3504,7 @@ footer .copyright .icons a {
 	#header>a {
 		padding: 0 0.5em;
 	}
-	#header>a+a[href="#menu"]:last-child {
+	#header>a+a.menu:last-child {
 		padding-left: 1em;
 		margin-left: 0.25em;
 	}

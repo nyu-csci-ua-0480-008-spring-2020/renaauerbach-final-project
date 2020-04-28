@@ -3,17 +3,15 @@ import React, { Component } from 'react';
 export default class Nav extends Component {
    constructor(props) {
       super(props);
-      this.state = {
-         showNav: this.props.showNav,
-      };
-      this.handleClose = this.handleClose.bind(this);
+      this.state = {};
+      // this.handleClose = this.handleClose.bind(this);
    }
 
-   handleClose = () => {
-      this.setState({
-         showNav: false,
-      });
-   };
+   // handleClose = () => {
+   //    this.setState({
+   //       showNav: !this.props.showNav,
+   //    });
+   // };
 
    render() {
       const navClass = this.props.showNav ? 'visible' : 'close';
@@ -35,7 +33,12 @@ export default class Nav extends Component {
                         <a href="/contact">Contact Us</a>
                      </li>
                   </ul>
-                  <a href="" className="close" onClick={this.handleClose}></a>
+                  <a
+                     href="#"
+                     target="_blank"
+                     className="close"
+                     onClick={this.props.toggleNav}
+                  ></a>
                </React.Fragment>
             ) : null}
          </nav>
