@@ -7,8 +7,8 @@ const Memory = require('../models/Memory');
 router.get('/', (req, res) => {
 	Memory.find()
 		.sort({ createdAt: -1 })
-		.then((memories) => res.json(memories))
-		.catch((err) => res.json({ error: err.message }));
+		.then(memories => res.json(memories))
+		.catch(err => res.json({ error: err.message }));
 });
 
 // Create new memory
@@ -28,11 +28,11 @@ router.post('/', (req, res) => {
 // Delete a memory
 router.delete('/:id', (req, res) => {
 	Memory.findByIdAndRemove({ _id: req.params.id, useFindAndModify: false })
-		.then((data) => {
+		.then(data => {
 			res.json({ success: true });
 			console.log('Memory deleted successfully!');
 		})
-		.catch((err) => {
+		.catch(err => {
 			res.status(400).json({
 				success: false,
 				error: err,

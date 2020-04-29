@@ -17,7 +17,11 @@ const ListMemories = ({ memories, handleDelete }) => {
                      <span className="details">{'By ' + memory.author}</span>
                      <span className="details">
                         {'Date: ' +
-                           date.toDateString().split(' ').slice(1).join(' ')}
+                           date
+                              .toDateString()
+                              .split(' ')
+                              .slice(1)
+                              .join(' ')}
                      </span>
                   </header>
                   <p>{memory.text}</p>

@@ -23,10 +23,10 @@ export default class Contact extends Component {
    componentDidMount() {
       axios
          .get('http://localhost:3001/api/contact')
-         .then((res) => {
+         .then(res => {
             console.log('Message: ', res.data);
          })
-         .catch((err) => {
+         .catch(err => {
             console.log(err);
          });
    }
@@ -52,7 +52,7 @@ export default class Contact extends Component {
 
       axios
          .post('http://localhost:3001/api/contact', msg)
-         .then((res) => {
+         .then(res => {
             this.setState({
                name: '',
                email: '',
@@ -60,9 +60,10 @@ export default class Contact extends Component {
                text: '',
                createdAt: {},
             });
+            this.componentDidMount();
             console.log(res.data);
          })
-         .catch((err) => {
+         .catch(err => {
             console.log('Error in Contact:', err);
          });
    }

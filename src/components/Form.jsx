@@ -4,11 +4,9 @@ export default class Form extends Component {
    constructor(props) {
       super(props);
       this.props = this.props.form;
-      this.state = {};
    }
 
    render() {
-      console.log('FORM PROPS', this.props);
       return (
          <div id="form">
             <form

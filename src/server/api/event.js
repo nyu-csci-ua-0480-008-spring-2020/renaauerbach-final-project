@@ -11,19 +11,22 @@ router.get('/', (req, res) => {
 });
 
 // Register user for event
-router.put('/:id/register', (req, res) => {
-	console.log('HELLO');
+router.post('/:id/register', (req, res) => {
 	const user = { name: req.body.name, email: req.body.email };
-	console.log('user:', user);
-	console.log('req.params:', req.params);
-	// Event.findByIdAndUpdate(req.params._id) {
-	// 	$set:
-	// }
-	const event = Event.findById(req.body.id);
+	console.log(user);
 
-	event.registerUser(user);
-	console.log('event.users', event.users);
-	console.log('User registered successfully!');
+	Event.findByIdAndUpdate(
+		{ _id: req.params.id, useFindAndModify: false },
+		{ $push: { users: user } }
+	)
+		.then(event => {
+			res.json({ success: true, event: event });
+			console.log('User registered successfully!');
+		})
+		.catch(err => {
+			res.status(400).json({ success: false, error: err });
+			res.json({ error: err.message });
+		});
 });
 
 module.exports = router;

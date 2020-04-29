@@ -25,11 +25,11 @@ export default class Memories extends Component {
    componentDidMount() {
       axios
          .get('http://localhost:3001/api/memories')
-         .then((res) => {
+         .then(res => {
             this.setState({ memories: res.data });
             console.log('Memories: ', res.data);
          })
-         .catch((err) => {
+         .catch(err => {
             console.log(err);
          });
    }
@@ -50,8 +50,8 @@ export default class Memories extends Component {
 
       axios
          .post('http://localhost:3001/api/memories', memory)
-         .then((res) => {
-            this.setState((prevState) => ({
+         .then(res => {
+            this.setState(prevState => ({
                memories: [memory, ...prevState.memories],
                title: '',
                author: '',
@@ -61,18 +61,17 @@ export default class Memories extends Component {
             this.componentDidMount();
             console.log(res.data);
          })
-         .catch((err) => {
+         .catch(err => {
             console.log('Error in Memories:', err);
          });
    }
 
    handleDelete(id) {
       // e.preventDefault();
-      console.log('id', id);
       axios
          .delete(`http://localhost:3001/api/memories/${id}`)
-         .then((res) => {
-            this.setState((prevState) => ({
+         .then(res => {
+            this.setState(prevState => ({
                memories: [],
                title: '',
                author: '',
@@ -82,7 +81,7 @@ export default class Memories extends Component {
             this.componentDidMount();
             console.log(res.data);
          })
-         .catch((err) => {
+         .catch(err => {
             console.log('Error in Memories:', err);
          });
    }
