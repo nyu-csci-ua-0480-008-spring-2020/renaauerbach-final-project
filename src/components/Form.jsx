@@ -40,12 +40,14 @@ export default class Form extends Component {
                   ></textarea>
                ) : null}
                <br />
-               <input
-                  className="submit"
-                  type="submit"
-                  name="submit"
-                  value={this.props.submit}
-               />
+               {this.props.submit ? (
+                  <input
+                     className="submit"
+                     type="submit"
+                     name="submit"
+                     value={this.props.submit}
+                  />
+               ) : null}
             </form>
          </div>
       );

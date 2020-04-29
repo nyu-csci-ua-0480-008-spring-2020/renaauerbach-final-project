@@ -6,7 +6,7 @@ import Form from '../components/Form';
 // Dynamically imported for project purposes
 import img from '../assets/img/event_img.png';
 
-const ColumnWrapper = ({ event, columns, form }) =>
+const ColumnWrapper = ({ event, columns, form, handleSubmit }) =>
    columns.map((col, index) => {
       let colClass = 'col ' + col.class;
       return (
@@ -32,10 +32,15 @@ const ColumnWrapper = ({ event, columns, form }) =>
                      className="toggle-form"
                      method={form.method}
                      inputs={form.inputs}
-                     submit={form.submit}
-                     onClick={form.onSubmit}
                      onChange={form.onChange}
                   />
+                  <li
+                     key={event._id}
+                     className="button"
+                     onClick={() => handleSubmit(event._id)}
+                  >
+                     Submit
+                  </li>
                </ToggleBox>
             ) : null}
          </div>

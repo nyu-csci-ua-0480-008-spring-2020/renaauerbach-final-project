@@ -5,7 +5,7 @@ const ListMemories = ({ memories, handleDelete }) => {
       memories.map((memory, index) => {
          let date = new Date(memory.createdAt);
          return (
-            <section className="style1 memories">
+            <section className="style1 memories" key={index}>
                <div className="inner_a post">
                   <header className="align-center">
                      <li
